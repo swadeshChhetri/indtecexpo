@@ -1,12 +1,13 @@
 'use client'
-import { useState } from "react";
+
 import { motion } from "framer-motion";
-import { X, Facebook, Twitter, Instagram, Mail, Phone, MapPin, Menu} from "lucide-react";
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin} from "lucide-react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import Link from "next/link";
 
 
 const featured_events = [
@@ -221,122 +222,18 @@ const blogs = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+
   // const [hoveredContent, setHoveredContent] = useState("");
 
   return (
     <>
-      <header className="w-full pt-4">
-        {/* Navigation Bar */}
-        <nav className="bg-white shadow-md px-6 py-6 md:px-12 flex justify-between items-center h-16 relative ">
-          {/* Logo */}
-          <div className="z-[5]" >
-            <Image src="/logo.png" alt="Logo" width={100} height={20} className="rounded-[5rem] w-[73%]" />
-          </div>
-
-          {/* Nav Links - Desktop */}
-          <ul className="hidden md:flex space-x-6 text-black font-semibold items-center">
-            <li className="hover:text-blue-600"><a href="#">HOME</a></li>
-            <li className="text-blue-600 border-b-2 border-blue-600"><a href="#">ABOUT</a></li>
-            <li className="hover:text-blue-600"><a href="#">Exhibitors</a></li>
-            <li className="hover:text-blue-600"><a href="#">Visitor</a></li>
-            <li className="hover:text-blue-600"><a href="#">News</a></li>
-            <div className="flex justify-center items-center bg-gradient-to-b from-blue-400 to-white">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600 transition"
-              >
-                Contact Us
-              </button>
-
-              {isOpen && (
-                <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-                  <motion.div
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -50 }}
-                    className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg"
-                  >
-                    <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-2xl font-bold">Get in Touch</h2>
-                      <X
-                        className="cursor-pointer text-gray-500 hover:text-gray-700"
-                        onClick={() => setIsOpen(false)}
-                      />
-                    </div>
-                    <p className="text-gray-600 mb-4">Nunc erat cursus tellus gravida.</p>
-
-                    <form className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
-                        <input
-                          type="text"
-                          placeholder="First Name"
-                          className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <input
-                          type="text"
-                          placeholder="Last Name"
-                          className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-4">
-                        <input
-                          type="email"
-                          placeholder="Email"
-                          className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <input
-                          type="tel"
-                          placeholder="Phone Number"
-                          className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                      <textarea
-                        placeholder="What do you have in mind?"
-                        className="p-3 border border-gray-300 rounded-lg w-full h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      ></textarea>
-                      <button
-                        type="submit"
-                        className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition"
-                      >
-                        Submit
-                      </button>
-                    </form>
-                  </motion.div>
-                </div>
-              )}
-            </div>
-          </ul>
-
-          {/* Burger Menu Icon - Mobile */}
-          <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-              {menuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-
-          {/* Slide Menu - Mobile */}
-          <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-50 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-            <div className="p-6 flex flex-col space-y-6">
-              <button className="self-end" onClick={() => setMenuOpen(false)}>
-                <X size={28} />
-              </button>
-              <a href="#" className="hover:text-blue-600">HOME</a>
-              <a href="#" className="text-blue-600 border-b-2 border-blue-600">ABOUT US</a>
-              <a href="#" className="hover:text-blue-600">PROJECTS</a>
-              <a href="#" className="hover:text-blue-600">CONTACT US</a>
-            </div>
-          </div>
-        </nav>
-      </header>
-
       <section
         className="relative flex items-center min-h-screen bg-cover bg-center px-4 sm:px-10 lg:px-20"
-        style={{ backgroundImage: "url('/your-background.jpg')" }}
+        style={{ backgroundImage: "url('/banner_image.png')" }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 backdrop-blur-sm bg-black/10"></div>
+
 
         {/* Content */}
         <motion.div
@@ -354,8 +251,10 @@ export default function Home() {
           </p>
 
           <motion.button
-            className="mt-6 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg rounded-md shadow-lg"
-            whileHover={{ scale: 1.05 }}
+            className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300"
+            whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
           >
             Register Now
@@ -410,7 +309,9 @@ export default function Home() {
 
             {/* Read More Button */}
             <motion.button
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg rounded-md shadow-lg"
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+              hover:shadow-2xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -467,7 +368,9 @@ export default function Home() {
                   <h3 className="text-lg sm:text-xl font-bold">{cls.title}</h3>
                   <p className="text-gray-600 text-sm sm:text-base my-2">{cls.description}</p>
                   <motion.button
-                    className="mt-4 px-16 py-2 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 text-white rounded-md"
+                    className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+                    text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+                    hover:shadow-2xl transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -661,13 +564,17 @@ export default function Home() {
 
         {/* View All Button */}
         <div className="text-center mt-8">
-          <motion.button
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View All
-          </motion.button>
+          <Link href="/gallery">
+            <motion.button
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+            text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+            hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View All
+            </motion.button>
+          </Link>
         </div>
       </section>
 
@@ -730,13 +637,17 @@ export default function Home() {
 
         {/* View All Button */}
         <div className="text-center mt-8">
-          <motion.button
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View All
-          </motion.button>
+          <Link href={"/videos"}>
+            <motion.button
+              className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+            text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+            hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View All
+            </motion.button>
+          </Link>
         </div>
       </section>
 
