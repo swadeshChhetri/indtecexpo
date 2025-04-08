@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin} from "lucide-react";
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
@@ -66,70 +66,72 @@ const videos = [
   { title: "PEDC Company Auditions", url: "https://www.youtube.com/embed/VIDEO_ID_3" },
   { title: "PEDC Performance", url: "https://www.youtube.com/embed/VIDEO_ID_4" },
 ];
+
 const clients = [
   {
     name: "Miss Amie",
     role: "Owner/Director",
-    image: "/man1.jpg",
+    image: "/logo_c1.jpg",
     details: "Miss Amie is an experienced director with a passion for dance.",
   },
   {
     name: "Miss Mandy",
     role: "Ballet Instructor",
-    image: "/path-to-image-2.jpg",
+    image: "/logo_c2.jpg",
     details:
       "Miss Mandy is originally from Sewell, NJ and began her dance training with Dance! by Debra DiNote.",
   },
   {
     name: "Miss Alyssa",
     role: "Tap Instructor",
-    image: "/path-to-image-3.jpg",
+    image: "/logo_c3.jpg",
     details: "Miss Alyssa has been teaching tap for over 10 years.",
   },
   {
     name: "Miss Leah",
     role: "Pre-School Class Instructor",
-    image: "/path-to-image-4.jpg",
+    image: "/logo_c4.jpg",
     details: "Miss Leah specializes in pre-school dance programs.",
   },
   {
     name: "Miss Sarah",
     role: "Jazz Instructor",
-    image: "/path-to-image-5.jpg",
+    image: "/logo_c5.jpg",
     details: "Miss Sarah has choreographed award-winning jazz performances.",
   },
   {
     name: "Miss Amie",
     role: "Owner/Director",
-    image: "/path-to-image-1.jpg",
+    image: "/logo_c6.jpg",
     details: "Miss Amie is an experienced director with a passion for dance.",
   },
   {
     name: "Miss Mandy",
     role: "Ballet Instructor",
-    image: "/path-to-image-2.jpg",
+    image: "/logo_c7.jpg",
     details:
       "Miss Mandy is originally from Sewell, NJ and began her dance training with Dance! by Debra DiNote.",
   },
   {
     name: "Miss Alyssa",
     role: "Tap Instructor",
-    image: "/path-to-image-3.jpg",
+    image: "/logo_c8.jpg",
     details: "Miss Alyssa has been teaching tap for over 10 years.",
   },
   {
     name: "Miss Leah",
     role: "Pre-School Class Instructor",
-    image: "/path-to-image-4.jpg",
+    image: "/logo_c8.jpg",
     details: "Miss Leah specializes in pre-school dance programs.",
   },
   {
     name: "Miss Sarah",
     role: "Jazz Instructor",
-    image: "/path-to-image-5.jpg",
+    image: "/logo_c9.jpg",
     details: "Miss Sarah has choreographed award-winning jazz performances.",
   },
 ];
+
 const orginizers = [
   {
     name: "Miss Amie",
@@ -194,11 +196,12 @@ const orginizers = [
     details: "Miss Sarah has choreographed award-winning jazz performances.",
   },
 ];
+
 const blogs = [
   {
     date: "01",
     month: "JUN",
-    img: "/path-to-image-1.jpg",
+    img: "/man6.jpg",
     title: "Lorem Ipsum Dolor Sit",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
@@ -206,7 +209,7 @@ const blogs = [
   {
     date: "01",
     month: "JUN",
-    img: "/path-to-image-2.jpg",
+    img: "/man2.jpg",
     title: "Lorem Ipsum Dolor Sit",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
@@ -214,7 +217,7 @@ const blogs = [
   {
     date: "01",
     month: "JUN",
-    img: "/path-to-image-3.jpg",
+    img: "/man3.jpg",
     title: "Lorem Ipsum Dolor Sit",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
@@ -242,7 +245,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-3xl lg:text-3xl font-bold leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-3xl lg:text-4xl font-bold leading-tight">
             IND-TEC EXPO 2025 <br /> – Hosurs Premier Industrial Showcase <br />
             <span className="text-blue-500">Powered by Jaguar Media & Entertainment LLP</span>
           </h1>
@@ -337,51 +340,63 @@ export default function Home() {
           Featured Events
         </motion.h2>
 
-        {/* Swiper Slider */}
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          navigation
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          className="max-w-6xl mx-auto"
-        >
-          {featured_events.map((cls, index) => (
-            <SwiperSlide key={index} className="flex justify-center">
-              <motion.div
-                className="bg-white text-black rounded-xl overflow-hidden shadow-lg w-full max-w-xs sm:max-w-sm ml-12 sm:ml-0"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Image
-                  src={cls.image}
-                  alt={cls.title}
-                  width={300}
-                  height={200}
-                  className="w-full h-48 sm:h-56 object-cover"
-                />
-                <div className="p-4 text-center">
-                  <h3 className="text-lg sm:text-xl font-bold">{cls.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base my-2">{cls.description}</p>
-                  <motion.button
-                    className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
-                    text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
-                    hover:shadow-2xl transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Register
-                  </motion.button>
-                </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {/* Swiper Wrapper with Custom Buttons */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Custom Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 z-50 flex justify-between px-4">
+            <button className="prev-button bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full shadow-md">
+              ❮
+            </button>
+            <button className="next-button bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full shadow-md">
+              ❯
+            </button>
+          </div>
 
+          {/* Swiper Slider */}
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            navigation={{ nextEl: ".next-button", prevEl: ".prev-button" }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            className="mt-8"
+          >
+            {featured_events.map((cls, index) => (
+              <SwiperSlide key={index} className="flex justify-center">
+                <motion.div
+                  className="bg-white text-black rounded-xl overflow-hidden shadow-lg w-full max-w-xs sm:max-w-sm ml-12 sm:ml-0"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Image
+                    src={cls.image}
+                    alt={cls.title}
+                    width={300}
+                    height={200}
+                    className="w-full h-48 sm:h-56 object-cover"
+                  />
+                  <div className="p-4 text-center">
+                    <h3 className="text-lg sm:text-xl font-bold">{cls.title}</h3>
+                    <p className="text-gray-600 text-sm sm:text-base my-2">{cls.description}</p>
+                    <motion.button
+                      className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+                text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+                hover:shadow-2xl transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Register
+                    </motion.button>
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </section>
 
       <section className="relative py-16 px-6 md:px-12 lg:px-20 bg-white text-black">
@@ -553,7 +568,7 @@ export default function Home() {
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <div className="flex justify-between max-w-6xl mx-auto mt-4">
+        <div className="absolute top-[40%] left-0 right-0 flex justify-between max-w-6xl mx-auto">
           <button className="prev-button bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full">
             ❮
           </button>
@@ -626,7 +641,7 @@ export default function Home() {
         </Swiper>
 
         {/* Custom Navigation Buttons */}
-        <div className="flex justify-between max-w-6xl mx-auto mt-4">
+        <div className="absolute top-[40%] left-0 right-0 flex justify-between max-w-6xl mx-auto mt-4">
           <button className="prev-button bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full">
             ❮
           </button>
@@ -651,10 +666,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-16 px-6 md:px-12 lg:px-24 bg-white text-black">
+      <section className="relative py-16 px-6 md:px-12 lg:px-20 bg-white text-black">
         {/* Background Text */}
         <h1 className="absolute top-10 left-1/2 -translate-x-1/2 text-7xl text-gray-300 font-bold opacity-20">
-          Our Clients
+          Our clients
         </h1>
 
         {/* Title */}
@@ -664,7 +679,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Our Clients
+          Our clients
         </motion.h2>
 
         {/* Swiper Slider */}
@@ -681,35 +696,29 @@ export default function Home() {
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           className="max-w-6xl mx-auto"
         >
-          {clients.map((client, index) => (
-            <SwiperSlide key={index} className="flex flex-col items-center">
+
+          {clients.map((cls, index) => (
+            <SwiperSlide key={index} className="flex justify-center">
               <motion.div
-                className="relative group bg-white rounded-lg shadow-lg overflow-hidden w-60 h-80 transition-all duration-300"
+                className="bg-white text-black rounded-xl overflow-hidden shadow-lg w-full max-w-xs sm:max-w-sm ml-12 sm:ml-0"
+                whileHover={{ scale: 1.05 }}
               >
-                {/* Image */}
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                <Image
+                  src={cls.image}
+                  alt={cls.name}
+                  width={300}
+                  height={300}
+                  className="w-full h-48 sm:h-56 object-cover"
                 />
-
-                {/* Default Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4 bg-white">
-                  <h3 className="text-lg font-semibold text-center">{client.name}</h3>
-                  <p className="text-sm text-center text-gray-600">{client.role}</p>
-                </div>
-
-                {/* Hover Details */}
-                <div className="absolute inset-0 bg-blue-600 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-lg font-semibold">{client.name}</h3>
-                  <p className="text-sm text-center max-w-xs">{client.details}</p>
-                  <a href="#" className="mt-2 underline text-sm">
-                    Read More
-                  </a>
+                <div className="p-4 text-center">
+                  <h3 className="text-lg sm:text-xl font-bold">{cls.name}</h3>
+                  {/* <p className="text-gray-600 text-sm sm:text-base my-2">{cls.description}</p> */}
                 </div>
               </motion.div>
             </SwiperSlide>
           ))}
+
+
         </Swiper>
 
         {/* Pagination Dots */}
