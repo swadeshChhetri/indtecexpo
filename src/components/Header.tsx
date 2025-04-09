@@ -5,8 +5,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, Menu } from "lucide-react";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
+
 
 const Header = () => {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -41,31 +44,34 @@ const Header = () => {
 
         {/* Nav Links - Desktop */}
         <ul className="hidden md:flex space-x-6 text-black font-semibold items-center">
-          <li className="hover:text-blue-600"><Link href={"/"}>Home</Link></li>
-          <li className="text-blue-600 border-b-2 border-blue-600"> <Link href={"/aboutUs"} className="text-blue-600 border-blue-600">About</Link></li>
-          <li className="relative group">
+          <li className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/">Home</Link>
+          </li>
+
+          <li className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/aboutUs">About</Link>
+          </li>
+
+          <li className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
             <div className="hover:text-blue-600 cursor-pointer">Exhibitors</div>
-            <div
-              className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48"
-            >
+            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48">
               <div className="py-2">
-                <a href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit?</a>
-                <Link href={"/exhibitors"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Book My Stall</Link>
-                <a href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sponsorship</a>
+                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit?</Link>
+                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
+                  Book My Stall
+                </Link>
+                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sponsorship</Link>
               </div>
             </div>
           </li>
 
-          <li className="hover:text-blue-600">
+          <li className={`${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
             <Link href="/visitors">Visitor</Link>
-          </li>
-          <li className="hover:text-blue-600">
-            <Link href={"/news"}>News</Link>
           </li>
           <div className="">
             <button
               onClick={() => setIsOpen(true)}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+              className="px-5 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
             >
@@ -73,12 +79,13 @@ const Header = () => {
             </button>
 
             {isOpen && (
-              <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+              <div className="fixed inset-0 flex justify-center items-center backdrop-blur-sm z-50" onClick={() => setIsOpen(false)}>
                 <motion.div
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -50 }}
-                  className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg"
+                  className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg mt-96"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex justify-between items-center mb-4">
                     <h2 className="text-2xl font-bold">Get in Touch</h2>

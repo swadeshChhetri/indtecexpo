@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react'
 import Image from 'next/image';
 import {
-  ArrowRight, Users,
+  Users,
   MonitorPlay,
   Handshake,
   Mic,
@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const targetDate = new Date('2025-04-11T09:00:00') // Set your event time
+const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
 const highlights = [
   {
     title: '100+ Exhibitors',
@@ -101,7 +101,6 @@ const exhibitors = [
     image: 'man8.jpg',
   },
 ];
-
 const images = [
   'g1.jpg',
   'g2.jpg',
@@ -110,6 +109,7 @@ const images = [
   'g5.jpg',
   'g6.jpg',
 ];
+
 
 function getTimeLeft() {
   const now = new Date().getTime();
@@ -137,18 +137,6 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [])
 
-  // function getTimeLeft() {
-  //   const now = new Date().getTime()
-  //   const distance = targetDate.getTime() - now
-
-  //   const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-  //   const hours = Math.floor((distance / (1000 * 60 * 60)) % 24)
-  //   const minutes = Math.floor((distance / 1000 / 60) % 60)
-  //   const seconds = Math.floor((distance / 1000) % 60)
-
-  //   return { days, hours, minutes, seconds }
-  // }
-
 
   return (
     <>
@@ -164,14 +152,14 @@ export default function Hero() {
           >
             <source src="/videos/expo-loop.mp4" type="video/mp4" />
           </video> */}
-          {/* <iframe
+          <iframe
             src="https://www.youtube.com/embed/zUTJv5-CCW4?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=zUTJv5-CCW4"
             className="w-full h-full object-cover"
             title="INDTEC Expo Video"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
-          /> */}
+          />
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
@@ -190,9 +178,14 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a href="#register">
-              <button className="flex items-center gap-2 px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
-                Register Now <ArrowRight className="w-4 h-4" />
-              </button>
+            <button
+              // onClick={() => setIsOpen(true)}
+              className="px-5 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300"
+            >
+              Register
+            </button>
             </a>
             <a href="#schedule">
               <button className="px-6 py-2 rounded-full border border-white text-white hover:bg-white/10 transition">
@@ -599,29 +592,24 @@ export default function Hero() {
             <h3 className="text-lg font-semibold mb-4">NAVIGATION</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-600 hover:text-black">
+                <Link href={"/"} className="text-gray-600 hover:text-black">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-black">
+                <Link href={"/aboutUs"} className="text-gray-600 hover:text-black">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Classes
-                </a>
+                <Link href={"/exhibitors"} className="text-gray-600 hover:text-black">
+                Exhibitors
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Media
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Contact
-                </a>
+                <Link href={"/visitors"} className="text-gray-600 hover:text-black">
+                Visitor
+                </Link>
               </li>
             </ul>
           </div>
