@@ -41,11 +41,27 @@ const Header = () => {
 
         {/* Nav Links - Desktop */}
         <ul className="hidden md:flex space-x-6 text-black font-semibold items-center">
-          <li className="hover:text-blue-600"><a href="#">HOME</a></li>
-          <li className="text-blue-600 border-b-2 border-blue-600"><a href="#">ABOUT</a></li>
-          <li className="hover:text-blue-600"><a href="#">Exhibitors</a></li>
-          <li className="hover:text-blue-600"><a href="#">Visitor</a></li>
-          <li className="hover:text-blue-600"><a href="#">News</a></li>
+          <li className="hover:text-blue-600"><Link href={"/"}>Home</Link></li>
+          <li className="text-blue-600 border-b-2 border-blue-600"> <Link href={"/aboutUs"} className="text-blue-600 border-blue-600">About</Link></li>
+          <li className="relative group">
+            <div className="hover:text-blue-600 cursor-pointer">Exhibitors</div>
+            <div
+              className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48"
+            >
+              <div className="py-2">
+                <a href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit?</a>
+                <Link href={"/exhibitors"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Book My Stall</Link>
+                <a href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sponsorship</a>
+              </div>
+            </div>
+          </li>
+
+          <li className="hover:text-blue-600">
+            <Link href="/visitors">Visitor</Link>
+          </li>
+          <li className="hover:text-blue-600">
+            <Link href={"/news"}>News</Link>
+          </li>
           <div className="">
             <button
               onClick={() => setIsOpen(true)}
@@ -129,7 +145,7 @@ const Header = () => {
               <X size={28} />
             </button>
             <a href="#" className="hover:text-blue-600">HOME</a>
-            <a href="#" className="text-blue-600 border-b-2 border-blue-600">ABOUT US</a>
+            <Link href={"/aboutUs"} className="text-blue-600 border-b-2 border-blue-600">ABOUT US</Link>
             <a href="#" className="hover:text-blue-600">PROJECTS</a>
             <a href="#" className="hover:text-blue-600">CONTACT US</a>
           </div>
