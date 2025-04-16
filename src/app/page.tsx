@@ -8,7 +8,7 @@ import {
   MonitorPlay,
   Handshake,
   Mic,
-  Network, CalendarClock,  Facebook, Twitter, Instagram, Mail, Phone, MapPin
+  Network, CalendarClock, Facebook, Twitter, Instagram, Mail, Phone, MapPin
 } from 'lucide-react';
 import Link from 'next/link';
 import VisitorModal from '@/components/VisitorModel';
@@ -159,14 +159,16 @@ export default function Hero() {
           >
             <source src="/videos/expo-loop.mp4" type="video/mp4" />
           </video> */}
-          {/* <iframe
-            src="https://www.youtube.com/embed/zUTJv5-CCW4?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=zUTJv5-CCW4"
-            className="w-full h-full object-cover"
-            title="INDTEC Expo Video"
-            frameBorder="0"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-          /> */}
+          <div className="w-full max-w-7xl mx-auto mt-10 aspect-video">
+            <iframe
+              className="w-full h-full rounded-xl shadow-lg"
+              src="https://www.youtube.com/embed/wh7sIc-PzQM?autoplay=1&mute=1"
+              title="YouTube video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
@@ -185,14 +187,14 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a href="#register">
-            <button
-               onClick={() => setIsModalOpen(true)}
-              className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
-            >
-              Register
-            </button>
+              >
+                Register
+              </button>
             </a>
             <a href="schedule">
               <button className="px-6 py-3 rounded-full border border-white text-white hover:bg-white/10 transition">
@@ -200,8 +202,8 @@ export default function Hero() {
               </button>
             </a>
 
-        
-            
+
+
           </div>
           <VisitorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </motion.div>
@@ -409,9 +411,9 @@ export default function Hero() {
           </div>
 
           <div className="mt-12">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" onClick={() => setIsExhibitorOpen(true)}>
-                Become an Exhibitor
-              </button>
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" onClick={() => setIsExhibitorOpen(true)}>
+              Become an Exhibitor
+            </button>
           </div>
           {isExhibitorOpen && <ExhibitorModal isOpen={isExhibitorOpen} onClose={() => setIsExhibitorOpen(false)} />}
 
@@ -619,12 +621,12 @@ export default function Hero() {
               </li>
               <li>
                 <Link href={"/exhibitors"} className="text-gray-600 hover:text-black">
-                Exhibitors
+                  Exhibitors
                 </Link>
               </li>
               <li>
                 <Link href={"/visitors"} className="text-gray-600 hover:text-black">
-                Visitor
+                  Visitor
                 </Link>
               </li>
             </ul>
