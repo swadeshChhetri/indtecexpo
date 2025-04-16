@@ -2,16 +2,18 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { X, Menu } from "lucide-react";
+import { X, Facebook, Twitter, Instagram, Menu, Phone, ChevronDown } from "lucide-react";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+// import Visitors from './../app/visitors/page';
 
+type HeaderProps = {
+  onContactClick: () => void;
+};
 
-const Header = () => {
+const Header = ({ onContactClick }: HeaderProps) => {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -33,109 +35,113 @@ const Header = () => {
   }, [prevScrollPos]);
 
   return (
-    <header className={`w-full pt-4 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
-      } fixed top-0 left-0 z-50 bg-white`}>
-      {/* Navigation Bar */}
-      <nav className="bg-white shadow-md px-6 py-6 md:px-12 flex justify-between items-center h-16 relative ">
+    <header className={`w-full transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
+      } fixed top-0 left-0 z-20 bg-white`}>
+      {/* Top Bar */}
+      <div className="bg-blue-500 py-1 text-white text-sm md:px-12 flex justify-between items-center">
         {/* Logo */}
         <Link href={"/"} className="z-[5]" >
-          <Image src="/logo.png" alt="Logo" width={100} height={20} className="rounded-[5rem] w-[73%]" />
+          <Image src="/logo.png" alt="Logo" width={80} height={4} className="w-[100%]" />
         </Link>
 
+        {/* Social Icons */}
+        <div className="flex space-x-3 ml-28">
+          <a href="#" className="hover:text-gray-300"><Facebook size={20} /></a>
+          <a href="#" className="hover:text-gray-300"><Twitter size={20} /></a>
+          <a href="#" className="hover:text-gray-300"><Instagram size={20} /></a>
+        </div>
+
+        {/* Contact Info */}
+        <div className="hidden sm:flex items-center space-x-2">
+          <Phone size={20} />
+          <span className="font-semibold">CALL US : 863.424.7355</span>
+        </div>
+      </div>
+
+      {/* Navigation Bar */}
+      <nav className="bg-white pl-20 shadow-md md:flex justify-between items-center py-3 relative ">
         {/* Nav Links - Desktop */}
-        <ul className="hidden md:flex space-x-6 text-black font-semibold items-center">
+        <ul className="hidden md:flex space-x-6 text-black items-center">
           <li className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
-            <Link href="/">Home</Link>
+            <Link href="/">HOME</Link>
           </li>
-
           <li className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
-            <Link href="/aboutUs">About</Link>
+            <Link href="/aboutUs">ABOUT</Link>
           </li>
-
-          <li className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
-            <div className="hover:text-blue-600 cursor-pointer">Exhibitors</div>
+          {/* <li className={`${pathname === '/organisers' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/organisers">ORGANISERS</Link>
+          </li> */}
+          <li className={`relative group flex ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <div className="hover:text-blue-600 cursor-pointer">VISITOR</div>
+            <ChevronDown className="w-4 h-4 mt-[2px]" />
             <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48">
               <div className="py-2">
-                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit?</Link>
-                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
-                  Book My Stall
-                </Link>
-                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sponsorship</Link>
+                <Link href={"/visitor-registration"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Visitor Registration</Link>
+                <Link href={"/visitor-profile"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Visitor Profile</Link>
               </div>
             </div>
           </li>
-
-          <li className={`${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
-            <Link href="/visitors">Visitor</Link>
+          <li className={`relative group flex ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <div className="hover:text-blue-600 cursor-pointer">EXHIBITORS</div>
+            <ChevronDown className="w-4 h-4 mt-[2px]" />
+            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-58">
+              <div className="py-2">
+                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit</Link>
+                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
+                  Exhibitor Brochure Download
+                </Link>
+                <Link href={"/SpaceBooking"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sector Profile</Link>
+                <Link href={"/SpaceBooking"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Stall Booking</Link>
+              </div>
+            </div>
           </li>
-          <div className="">
+          <li className={`relative group flex ${pathname === '/sponsorship' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/sponsorship">SPONSORSHIP</Link>
+          </li>
+          <li className={`relative group flex ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <div className="hover:text-blue-600 cursor-pointer">THE FAIR</div>
+          </li>
+          <li className={`relative group flex ${pathname === '/gallery' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/gallery">GALLERY</Link>
+            <ChevronDown className="w-4 h-4 mt-[2px]" />
+            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48">
+              <div className="py-2">
+                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Photos</Link>
+                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
+                  Videos
+                </Link>
+              </div>
+            </div>
+          </li>
+          <li className={`relative group flex ${pathname === '/press&media' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
+            <Link href="/gallery">PRESS/MEDIA</Link>
+            <ChevronDown className="w-4 h-4 mt-[2px]" />
+            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-62">
+              <div className="py-2">
+                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Registration For Media</Link>
+                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
+                  Promotional Assets
+                </Link>
+                <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
+                  Press/Media Brochure Download
+                </Link>
+              </div>
+            </div>
+          </li>
+          <li className="hover:text-blue-600">
             <button
-              onClick={() => setIsOpen(true)}
-              className="px-5 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
-             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+              onClick={onContactClick}
+            >CONTACT US</button>
+          </li>
+          <li className="">
+            <Link href={"/SpaceBooking"}
+              className="px-4 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-sm font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
             >
-              Contact Us
-            </button>
-
-            {isOpen && (
-              <div className="fixed inset-0 flex justify-center items-center backdrop-blur-sm z-50" onClick={() => setIsOpen(false)}>
-                <motion.div
-                  initial={{ opacity: 0, y: -50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -50 }}
-                  className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg mt-96"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold">Get in Touch</h2>
-                    <X
-                      className="cursor-pointer text-gray-500 hover:text-gray-700"
-                      onClick={() => setIsOpen(false)}
-                    />
-                  </div>
-                  <p className="text-gray-600 mb-4">Nunc erat cursus tellus gravida.</p>
-
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <input
-                        type="text"
-                        placeholder="First Name"
-                        className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Last Name"
-                        className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                      <input
-                        type="tel"
-                        placeholder="Phone Number"
-                        className="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      />
-                    </div>
-                    <textarea
-                      placeholder="What do you have in mind?"
-                      className="p-3 border border-gray-300 rounded-lg w-full h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    ></textarea>
-                    <button
-                      type="submit"
-                      className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition"
-                    >
-                      Submit
-                    </button>
-                  </form>
-                </motion.div>
-              </div>
-            )}
-          </div>
+              BOOK MY STALL
+            </Link>
+          </li>
         </ul>
 
         {/* Burger Menu Icon - Mobile */}
@@ -146,15 +152,18 @@ const Header = () => {
         </div>
 
         {/* Slide Menu - Mobile */}
-        <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-50 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="p-6 flex flex-col space-y-6">
+        <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-96 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="p-6 flex flex-col space-y-6 bg-white">
             <button className="self-end" onClick={() => setMenuOpen(false)}>
               <X size={28} />
             </button>
-            <a href="#" className="hover:text-blue-600">HOME</a>
-            <Link href={"/aboutUs"} className="text-blue-600 border-b-2 border-blue-600">ABOUT US</Link>
-            <a href="#" className="hover:text-blue-600">PROJECTS</a>
-            <a href="#" className="hover:text-blue-600">CONTACT US</a>
+            <Link href={"/"} className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>HOME</Link>
+            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+            <Link href={"/exhibitors"} className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Exhibitors</Link>
+            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+            <Link href={"/visitors"} className={`relative group ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Visitors</Link>
           </div>
         </div>
       </nav>

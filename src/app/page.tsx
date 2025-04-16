@@ -11,6 +11,10 @@ import {
   Network, CalendarClock,  Facebook, Twitter, Instagram, Mail, Phone, MapPin
 } from 'lucide-react';
 import Link from 'next/link';
+import VisitorModal from '@/components/VisitorModel';
+import ExhibitorModal from '@/components/ExhibitorModal';
+
+
 
 const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
 const highlights = [
@@ -127,6 +131,9 @@ function getTimeLeft() {
 export default function Hero() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   const [mounted, setMounted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isExhibitorOpen, setIsExhibitorOpen] = useState(false);
+
 
   useEffect(() => {
     setMounted(true);
@@ -140,7 +147,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative h-[90vh] flex items-center justify-center text-white">
+      <section className="relative h-[90vh] pt-16 flex items-center justify-center text-white">
         {/* Background Video or Image */}
         <div className="absolute inset-0">
           {/* <video
@@ -152,14 +159,14 @@ export default function Hero() {
           >
             <source src="/videos/expo-loop.mp4" type="video/mp4" />
           </video> */}
-          <iframe
+          {/* <iframe
             src="https://www.youtube.com/embed/zUTJv5-CCW4?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&playlist=zUTJv5-CCW4"
             className="w-full h-full object-cover"
             title="INDTEC Expo Video"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
-          />
+          /> */}
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
@@ -170,8 +177,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold">INDTEC EXPO 2025</h1>
-          <p className="mt-2 text-xl md:text-2xl">April 11–13 · Hosur</p>
+          <h1 className="text-4xl md:text-6xl font-bold">INDTEC EXPO - 2025</h1>
+          <p className="mt-2 text-xl md:text-2xl">April 18 – 19 - 13 · Hosur, TamilNadu, India</p>
           <p className="mt-4 text-lg md:text-xl font-medium">
             India&apos;s Leading Industrial Technology Exhibition
           </p>
@@ -179,22 +186,27 @@ export default function Hero() {
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <a href="#register">
             <button
-              // onClick={() => setIsOpen(true)}
-              className="px-5 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+               onClick={() => setIsModalOpen(true)}
+              className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
             >
               Register
             </button>
             </a>
-            <a href="#schedule">
-              <button className="px-6 py-2 rounded-full border border-white text-white hover:bg-white/10 transition">
+            <a href="schedule">
+              <button className="px-6 py-3 rounded-full border border-white text-white hover:bg-white/10 transition">
                 View Schedule
               </button>
             </a>
+
+        
+            
           </div>
+          <VisitorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </motion.div>
       </section>
+
       <section className="relative py-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
         <div className="absolute inset-0 bg-stars opacity-20"></div>
 
@@ -223,6 +235,7 @@ export default function Hero() {
           </div>
         </div>
       </section>
+
       <section className="bg-white text-gray-900 py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
@@ -275,6 +288,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </section>
+
       <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2
@@ -395,12 +409,12 @@ export default function Hero() {
           </div>
 
           <div className="mt-12">
-            <Link href="/become-exhibitor">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" onClick={() => setIsExhibitorOpen(true)}>
                 Become an Exhibitor
               </button>
-            </Link>
           </div>
+          {isExhibitorOpen && <ExhibitorModal isOpen={isExhibitorOpen} onClose={() => setIsExhibitorOpen(false)} />}
+
         </div>
       </section>
 
@@ -446,6 +460,7 @@ export default function Hero() {
           </div>
         </div>
       </section>
+
       <section className="bg-blue-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.h2
@@ -484,6 +499,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </section>
+
       <section className="bg-white py-16">
         <div className="max-w-5xl mx-auto px-4">
           <motion.h2

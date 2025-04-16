@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Abril_Fatface } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import RootWrapper from "./RootWrapper";
+import { Toaster } from "react-hot-toast";
+
 
 // Load fonts with variables
 const geistSans = Geist({
@@ -37,8 +40,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${abril.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <RootWrapper>
+        <Toaster />
+          {children}
+          </RootWrapper>
       </body>
     </html>
   );
