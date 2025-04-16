@@ -25,7 +25,7 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
     e.preventDefault();
 
     try {
-      const res = await fetch("http://tradesfairs.com/indtecexpo/api/contact", {
+      const res = await fetch("https://tradesfairs.com/indtecexpo/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -25,7 +25,7 @@ export default function VisitorModal({ isOpen, onClose }: VisitorModalProps) {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post('http://tradesfairs.com/indtecexpo/api/visitors', formData); // Change URL if deployed
+      await axios.post('https://tradesfairs.com/indtecexpo/api/visitors', formData); // Change URL if deployed
       console.log('Data submitted:', formData);
       onClose();
     } catch (error) {

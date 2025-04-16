@@ -52,7 +52,7 @@ export default function ExhibitorForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("http://tradesfairs.com/indtecexpo/api/spacebooking", {
+      await fetch("https://tradesfairs.com/indtecexpo/api/spacebooking", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

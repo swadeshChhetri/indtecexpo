@@ -35,7 +35,7 @@ export default function ExhibitorModal({ isOpen, onClose }: ExhibitorModalProps)
     e.preventDefault();
 
     try {
-      const response = await fetch('http://tradesfairs.com/indtecexpo/api/exhibitors', {
+      const response = await fetch('https://tradesfairs.com/indtecexpo/api/exhibitors', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
