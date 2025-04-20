@@ -1,14 +1,14 @@
 
 'use client'
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image';
 import {
   Users,
   MonitorPlay,
   Handshake,
   Mic,
-  Network, CalendarClock, Facebook, Twitter, Instagram, Mail, Phone, MapPin
+  Network, CalendarClock, Mail, Phone, MapPin
 } from 'lucide-react';
 import Link from 'next/link';
 import VisitorModal from '@/components/VisitorModel';
@@ -16,7 +16,7 @@ import ExhibitorModal from '@/components/ExhibitorModal';
 
 
 
-const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
+// const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
 const highlights = [
   {
     title: '100+ Exhibitors',
@@ -113,36 +113,51 @@ const images = [
   'g5.jpg',
   'g6.jpg',
 ];
+const logos = [
+  "/companylogos/1.jpg", "/companylogos/2.jpg", "/companylogos/3.jpg", "/companylogos/4.jpg",
+  "/companylogos/5.jpg", "/companylogos/6.jpg", "/companylogos/7.jpg", "/companylogos/8.jpg",
+  "/companylogos/9.jpg", "/companylogos/10.jpg", "/companylogos/11.jpg", "/companylogos/12.jpg",
+  "/companylogos/13.jpg", "/companylogos/14.jpg", "/companylogos/15.jpg", "/companylogos/16.jpg",
+  "/companylogos/17.jpg", "/companylogos/18.jpg", "/companylogos/19.jpg", "/companylogos/20.jpg",
+  "/companylogos/21.jpg", "/companylogos/22.jpg", "/companylogos/23.jpg", "/companylogos/24.jpg",
+  "/companylogos/25.jpg", "/companylogos/26.jpg", "/companylogos/27.jpg", "/companylogos/28.jpg",
+  "/companylogos/29.jpg", "/companylogos/30.jpg", "/companylogos/31.jpg", "/companylogos/32.jpg",
+  "/companylogos/33.jpg", "/companylogos/34.jpg", "/companylogos/35.jpg", "/companylogos/36.jpg",
+  "/companylogos/37.jpg", "/companylogos/38.jpg", "/companylogos/39.jpg", "/companylogos/40.jpg",
+  "/companylogos/41.jpg", "/companylogos/42.jpg", "/companylogos/43.jpg", "/companylogos/44.jpg"
+];
+
+const loopedLogos = [...logos, ...logos];
 
 
-function getTimeLeft() {
-  const now = new Date().getTime();
-  const distance = targetDate.getTime() - now;
+// function getTimeLeft() {
+//   const now = new Date().getTime();
+//   const distance = targetDate.getTime() - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / 1000 / 60) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
+//   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//   const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+//   const minutes = Math.floor((distance / 1000 / 60) % 60);
+//   const seconds = Math.floor((distance / 1000) % 60);
 
-  return { days, hours, minutes, seconds };
-}
+//   return { days, hours, minutes, seconds };
+// }
 
 
 export default function Hero() {
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
-  const [mounted, setMounted] = useState(false);
+  // const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  // const [mounted, setMounted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExhibitorOpen, setIsExhibitorOpen] = useState(false);
 
 
-  useEffect(() => {
-    setMounted(true);
-    const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft())
-    }, 1000)
+  // useEffect(() => {
+  //   setMounted(true);
+  //   const interval = setInterval(() => {
+  //     setTimeLeft(getTimeLeft())
+  //   }, 1000)
 
-    return () => clearInterval(interval)
-  }, [])
+  //   return () => clearInterval(interval)
+  // }, [])
 
 
   return (
@@ -150,25 +165,25 @@ export default function Hero() {
       <section className="relative h-[90vh] pt-56 flex items-center justify-center text-white">
         {/* Background Video or Image */}
         <div className="absolute inset-0">
-          {/* <video
+          <video
             autoPlay
             muted
             loop
             className="w-full h-full object-cover"
             poster="/images/hero-poster.jpg"
           >
-            <source src="/videos/expo-loop.mp4" type="video/mp4" />
-          </video> */}
-          <div className="w-full max-w-7xl mx-auto mt-10 aspect-video">
+            <source src="/konn.mp4" type="video/mp4" />
+          </video>
+          {/* <div className="w-full max-w-7xl mx-auto mt-10 aspect-video">
             <iframe
               className="w-full h-full rounded-xl shadow-lg"
-              src="https://www.youtube.com/embed/wh7sIc-PzQM?autoplay=1&mute=1"
+              src="https://www.youtube.com/embed/dAvtwpl4XCc?autoplay=1&mute=1&loop=1&playlist=dAvtwpl4XCc"
               title="YouTube video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          </div>
+          </div> */}
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
@@ -180,7 +195,9 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold">INDTEC EXPO - 2025</h1>
-          <p className="mt-2 text-xl md:text-2xl">April 18 – 19 - 13 · Hosur, TamilNadu, India</p>
+          <p className="mt-2 text-xl md:text-2xl">NOVEMBER 20 – 21 - 22</p>
+          <p>Hotel Hills Exhibition Center</p>
+          <p>(Bangalore-Chennai-Coimbatore Highway), Hosur, Tamilnadu, India</p>
           <p className="mt-4 text-lg md:text-xl font-medium">
             India&apos;s Leading Industrial Technology Exhibition
           </p>
@@ -196,49 +213,32 @@ export default function Hero() {
                 REGISTER
               </button>
             </a>
-            <a href="schedule">
-              <button className="px-6 py-3 rounded-full border border-white text-white hover:bg-white/10 transition">
-                View Schedule
-              </button>
-            </a>
-
-
-
           </div>
           <VisitorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </motion.div>
       </section>
 
-      <section className="relative py-16 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
-        <div className="absolute inset-0 bg-stars opacity-20"></div>
-
-        <div className="max-w-4xl mx-auto px-4 text-center relative">
-          <h2 className="text-4xl font-extrabold mb-8 tracking-wide">
-            Countdown to the <span className="text-blue-400">Expo</span>
-          </h2>
-
-          <div className="flex justify-center flex-wrap gap-6">
-            {mounted && Object.entries(timeLeft).map(([label, value], idx) => (
-              <motion.div
-                key={label}
-                className="w-24 h-24 flex flex-col justify-center items-center rounded-xl bg-white/10 backdrop-blur-md shadow-lg border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-              >
-                <span className="text-4xl font-extrabold text-blue-300 drop-shadow-lg">
-                  {value.toString().padStart(2, '0')}
-                </span>
-                <span className="uppercase text-sm tracking-wide mt-1 opacity-80">
-                  {label}
-                </span>
-              </motion.div>
+      <section className="relative py-12 bg-white via-red-800 to-red-900 text-white">
+        <div className="overflow-hidden w-full">
+          <motion.div
+            className="flex gap-10 "
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              ease: "linear",
+              duration: 20, // Adjust speed here
+            }}
+          >
+            {loopedLogos.map((src, index) => (
+              <div key={index} className="min-w-[100px] flex items-center ">
+                <Image src={src} alt={`Logo ${index}`} width={100} height={40} />
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <section className="bg-white text-gray-900 py-16">
+      <section className="bg-white text-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <motion.div
@@ -505,7 +505,7 @@ export default function Hero() {
               <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300">
-               REGISTER AS VISITOR
+                REGISTER AS VISITOR
               </button>
             </Link>
           </motion.div>
@@ -567,105 +567,86 @@ export default function Hero() {
         </div>
       </section>
 
-      <footer className="bg-white text-black py-10 px-6 md:px-12 lg:px-24 border-t">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <footer className="bg-white text-black py-10 px-6 border-t">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo & Social Icons */}
-          <div className="flex flex-col items-center md:items-start space-y-4">
-            <Image src="/IndtecExpologo.jpg" alt="Logo" width={150} height={80} />
-            <div className="flex space-x-3">
-              <a href="#" className="text-black hover:text-gray-600">
-                <Facebook size={28} />
-              </a>
-              <a href="#" className="text-black hover:text-gray-600">
-                <Twitter size={28} />
-              </a>
-              <a href="#" className="text-black hover:text-gray-600">
-                <Instagram size={28} />
-              </a>
-            </div>
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <Image
+              src="/IndtecExpologo.jpg"
+              alt="Logo"
+              width={250}
+              height={250}
+              className="w-[200px] h-56 object-contain"
+            />
           </div>
+
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">QUICK LINKS</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Download PEDC Brochure
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  2017-2018 Schedule
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  2017-2018 Calendar
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Account Access
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  After School Pickup
-                </a>
-              </li>
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-3 text-gray-600">
+              <li><a href="#" className="hover:text-black transition">Download PEDC Brochure</a></li>
+              <li><a href="#" className="hover:text-black transition">2017-2018 Schedule</a></li>
+              <li><a href="#" className="hover:text-black transition">2017-2018 Calendar</a></li>
+              <li><a href="#" className="hover:text-black transition">Account Access</a></li>
+              <li><a href="#" className="hover:text-black transition">After School Pickup</a></li>
             </ul>
           </div>
+
           {/* Navigation */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">NAVIGATION</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href={"/"} className="text-gray-600 hover:text-black">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href={"/aboutUs"} className="text-gray-600 hover:text-black">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href={"/exhibitors"} className="text-gray-600 hover:text-black">
-                  Exhibitors
-                </Link>
-              </li>
-              <li>
-                <Link href={"/visitors"} className="text-gray-600 hover:text-black">
-                  Visitor
-                </Link>
-              </li>
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold mb-4">Navigation</h3>
+            <ul className="space-y-3 text-gray-600">
+              <li><Link href="/" className="hover:text-black transition">Home</Link></li>
+              <li><Link href="/aboutUs" className="hover:text-black transition">About</Link></li>
+              <li><Link href="/exhibitors" className="hover:text-black transition">Exhibitors</Link></li>
+              <li><Link href="/visitors" className="hover:text-black transition">Visitor</Link></li>
             </ul>
           </div>
+
           {/* Contact Details */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">CONTACT DETAILS</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <MapPin size={20} />
-                <p className="text-gray-600">
-                  2629 Waverly Barn Road Suite 125, Davenport FL 33897
+          <div className="text-center md:text-left">
+            <h3 className="text-xl font-bold mb-4">Contact Details</h3>
+            <div className="space-y-5 text-sm text-gray-700">
+             
+              <div className="flex items-start space-x-3">
+                <MapPin size={20} className="mt-1 text-red-500" />
+                <p>
+                  #372/1, 3rd Floor, <br /> 4th Stage, 8th Main Road,
+                  Basaweshwaranagar, Bangalore,<br />
+                  Karnataka, India - 560079
                 </p>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone size={20} className="text-blue-600" />
-                <p className="text-blue-600">863.424.7355</p>
+              <div><p className="text-[13px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</p></div>
+              <div className="flex items-start space-x-3">
+                <Phone size={20} className="mt-1 text-blue-600" />
+                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                  
+                  <p>+91 7406213221</p>
+                  <p>+91 7406213223</p>
+                  <p>+080 23238677</p>
+                  <p>+080 23238699</p>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Mail size={20} />
-                <p className="text-gray-600">http://www.jaguarmedia.com</p>
+              <div className="flex items-start space-x-3">
+                <Mail size={20} className="mt-1 text-green-600" />
+                <a
+                  href="http://www.jaguarmedia.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 underline hover:text-blue-900"
+                >
+                  www.jaguarmedia.com
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div className="text-center text-gray-500 text-sm mt-8">
-          © JAGUAR MEDIA AND ENTERTAINMENTS LLP · 2019
+
+        <div className="text-center text-gray-500 text-sm mt-10 border-t pt-4">
+          © JAGUAR MEDIA AND ENTERTAINMENTS LLP · 2025
         </div>
       </footer>
+
 
     </>
   )
