@@ -38,7 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${abril.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${abril.variable}  antialiased 
+        bg-gradient-to-br from-gray-800 via-gray-900 to-black 
+        text-white 
+        min-h-screen`}
       >
         <RootWrapper>
         <Toaster />

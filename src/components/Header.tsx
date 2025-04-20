@@ -2,9 +2,10 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, Facebook, Twitter, Instagram, Menu, Phone, ChevronDown } from "lucide-react";
+import { X, Menu,ChevronDown } from "lucide-react";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import ExhibitorForm from './BookingModal';
 // import Visitors from './../app/visitors/page';
 
 type HeaderProps = {
@@ -16,6 +17,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,24 +40,51 @@ const Header = ({ onContactClick }: HeaderProps) => {
     <header className={`w-full transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
       } fixed top-0 left-0 z-20 bg-white`}>
       {/* Top Bar */}
-      <div className="bg-blue-500 py-1 text-white text-sm md:px-12 flex justify-between items-center">
+      <div className="bg-gray-500 text-white text-sm md:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href={"/"} className="z-[5]" >
-          <Image src="/logo.png" alt="Logo" width={80} height={4} className="w-[100%]" />
+          <Image src="/indtecExpologo.jpg" alt="Logo" width={198} height={4} className="w-[100%]" />
+        </Link>
+        <Link href={"/"} className="z-[5]" >
+          <p className='text-center'>Concurrent Show</p>
+          <Image src="/conshow.jpg" alt="Logo" width={80} height={4} className="w-[100%]" />
         </Link>
 
-        {/* Social Icons */}
-        <div className="flex space-x-3 ml-28">
-          <a href="#" className="hover:text-gray-300"><Facebook size={20} /></a>
-          <a href="#" className="hover:text-gray-300"><Twitter size={20} /></a>
-          <a href="#" className="hover:text-gray-300"><Instagram size={20} /></a>
+        <Link href={"/"} className="z-[5]" >
+          <p className='text-center'>Organised By</p>
+          <Image src="/org.jpg" alt="Logo" width={80} height={4} className="w-[100%]" />
+        </Link>
+        <div className="">
+          <Link href={"/"} className="z-[5]" >
+            <p className='text-center'>Supported By</p>
+            <Image src="/sup.jpg" alt="Logo" width={80} height={4} className="w-[100%]" />
+          </Link>
+        </div>
+        <div className="">
+          <Link href={"/"} className="z-[5]" >
+            <p className='text-center'>Market By</p>
+            <Image src="/marketedBy.png" alt="Logo" width={80} height={4} className="w-[100%]" />
+          </Link>
+          <Link href={"/"} className="z-[5]" >
+            <p className='text-center'>Organized By</p>
+            <Image src="/KG.png" alt="Logo" width={80} height={4} className="w-[100%]" />
+          </Link>
         </div>
 
-        {/* Contact Info */}
-        <div className="hidden sm:flex items-center space-x-2">
-          <Phone size={20} />
-          <span className="font-semibold">CALL US : 863.424.7355</span>
+        {/* Event Info */}
+        <div className=" text-white text-center text-[14px] md:text-[14px] ">
+          <p className="font-semibold">20-21-22 November 2025</p>
+          <p>Hotel Hills Exhibition Centre</p>
+          <p>(Bangalore - Chennai - Coimbatore Highway)</p>
+          <p> Hosur, Tamilnadu, India</p>
         </div>
+
+
+
+        {/* <Image src="/logo.png" alt="Logo" width={80} height={4} className="w-[100%]" /> */}
+
+
+
       </div>
 
       {/* Navigation Bar */}
@@ -134,13 +163,28 @@ const Header = ({ onContactClick }: HeaderProps) => {
             >CONTACT US</button>
           </li>
           <li className="">
-            <Link href={"/SpaceBooking"}
+            <button  onClick={() => setIsModalOpen(true)}
               className="px-4 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-sm font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
             >
               BOOK MY STALL
-            </Link>
+            </button>
+            {isModalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-6 relative">
+      <button
+        className="absolute top-4 right-4 text-gray-500 hover:text-black"
+        onClick={() => setIsModalOpen(false)}
+      >
+        ❌
+      </button>
+
+      {/* Put your full form component here */}
+      <ExhibitorForm onClose={() => setIsModalOpen(false)}/>
+    </div>
+  </div>
+)}
           </li>
         </ul>
 

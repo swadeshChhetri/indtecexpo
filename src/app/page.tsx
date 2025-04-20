@@ -147,7 +147,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative h-[90vh] pt-16 flex items-center justify-center text-white">
+      <section className="relative h-[90vh] pt-56 flex items-center justify-center text-white">
         {/* Background Video or Image */}
         <div className="absolute inset-0">
           {/* <video
@@ -193,7 +193,7 @@ export default function Hero() {
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
               >
-                Register
+                REGISTER
               </button>
             </a>
             <a href="schedule">
@@ -252,8 +252,10 @@ export default function Hero() {
               INDTEC EXPO 2025 is India’s premier industrial technology event, showcasing cutting-edge innovations, machinery, and sustainable solutions. Network with top manufacturers, suppliers, and industry leaders over three dynamic days in Hosur.
             </p>
             <Link href="/about">
-              <button className="px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition">
-                Learn More
+              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300">
+                LEARN MORE
               </button>
             </Link>
           </motion.div>
@@ -367,9 +369,11 @@ export default function Hero() {
 
           <div className="text-center mt-12">
             <Link href="/schedule">
-              <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-full transition">
+              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300 flex text-center">
                 <CalendarClock className="w-5 h-5" />
-                See Full Schedule
+                SEE FULL SCHEDULE
               </button>
             </Link>
           </div>
@@ -385,7 +389,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            Our Exhibitors & Partners
+            OUR EXHIBITORS & PARTNERS
           </motion.h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-center">
@@ -411,8 +415,10 @@ export default function Hero() {
           </div>
 
           <div className="mt-12">
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition" onClick={() => setIsExhibitorOpen(true)}>
-              Become an Exhibitor
+            <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300" onClick={() => setIsExhibitorOpen(true)}>
+              BECOME AN EXHIBITOR
             </button>
           </div>
           {isExhibitorOpen && <ExhibitorModal isOpen={isExhibitorOpen} onClose={() => setIsExhibitorOpen(false)} />}
@@ -455,8 +461,10 @@ export default function Hero() {
 
           <div className="mt-10">
             <Link href="/gallery">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-                View Full Gallery
+              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300">
+                VIEW FULL GALLERY
               </button>
             </Link>
           </div>
@@ -494,8 +502,10 @@ export default function Hero() {
             viewport={{ once: true }}
           >
             <Link href="/register">
-              <button className="px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition">
-                Register as Visitor
+              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300">
+               REGISTER AS VISITOR
               </button>
             </Link>
           </motion.div>
@@ -511,7 +521,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            Venue & Location
+            VENUE & LOCATION
           </motion.h2>
 
           <motion.p
@@ -561,7 +571,7 @@ export default function Hero() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Social Icons */}
           <div className="flex flex-col items-center md:items-start space-y-4">
-            <Image src="/logo.png" alt="Logo" width={150} height={80} />
+            <Image src="/IndtecExpologo.jpg" alt="Logo" width={150} height={80} />
             <div className="flex space-x-3">
               <a href="#" className="text-black hover:text-gray-600">
                 <Facebook size={28} />
