@@ -39,7 +39,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
 
   return (
     <header className={`w-full transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
-      } fixed top-0 left-0 z-20 bg-white`}>
+      } fixed top-0 left-0 bg-white z-10`}>
       {/* Top Bar */}
       <div className="bg-white py-1 text-black text-sm md:px-6 flex justify-between items-center">
 
@@ -188,7 +188,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
           <li className={`relative group flex ${pathname === '/gallery' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
             <Link href="/gallery" className='text-[14px]'>GALLERY</Link>
             <ChevronDown className="w-4 h-4 mt-[2px]" />
-            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-40 w-48">
+            <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 w-48">
               <div className="py-2 px-4 text-[14px] flex flex-col space-y-2">
                 <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Photos</Link>
                 <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">

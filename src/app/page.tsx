@@ -189,7 +189,7 @@ export default function Hero() {
 
         {/* Hero Content */}
         <motion.div
-          className="relative z-10 text-center max-w-4xl px-4"
+          className="relative text-center max-w-4xl px-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
