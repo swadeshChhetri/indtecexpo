@@ -190,10 +190,14 @@ const Header = ({ onContactClick }: HeaderProps) => {
             <ChevronDown className="w-4 h-4 mt-[2px]" />
             <div className="absolute top-full left-0 bg-white shadow-lg mt-2 rounded-md opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300 z-20 w-48">
               <div className="py-2 px-4 text-[14px] flex flex-col space-y-2">
-                <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Photos</Link>
+                {/* <Link href="#" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Why Exhibit</Link>
                 <Link href="/exhibitors" className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">
-                  Videos
+                  Exhibitor Brochure Download
                 </Link>
+                <Link href={"/SpaceBooking"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Sector Profile</Link>
+                <Link href={"/SpaceBooking"} className="block px-4 py-2 hover:bg-blue-50 text-sm text-gray-700">Stall Booking</Link> */}
+                <Link href={"/"}>Photos</Link>
+                <Link href={"/"}>Videos</Link>
               </div>
             </div>
           </li>
