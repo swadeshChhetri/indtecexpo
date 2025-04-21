@@ -46,7 +46,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
         {/* Logo */}
 
         <Link href={"/"} className="z-[5]" >
-          <Image src="/indtecExpologo.jpg" alt="Logo" width={198} height={4} className="w-[100%]" />
+          <Image src="/IndtecExpologo.jpg" alt="Logo" width={198} height={4} className="w-[100%]" />
         </Link>
         <div>
           <p className="text-center font-semibold">Concurrent Show</p>
