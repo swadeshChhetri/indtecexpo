@@ -8,7 +8,7 @@ import {
   MonitorPlay,
   Handshake,
   Mic,
-  Network, CalendarClock, Mail, Phone, MapPin
+  Network, CalendarClock, Mail, Phone, MapPin, Building
 } from 'lucide-react';
 import Link from 'next/link';
 import VisitorModal from '@/components/VisitorModel';
@@ -616,7 +616,8 @@ export default function Hero() {
                   Karnataka, India - 560079
                 </p>
               </div>
-              <div><p className="text-[13px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</p></div>
+              <div className='flex items-center gap-2'><Building size={28} className="text-blue-600" />
+      <span className="text-[11px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</span></div>
               <div className="flex items-start space-x-3">
                 <Phone size={20} className="mt-1 text-blue-600" />
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">

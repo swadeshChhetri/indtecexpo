@@ -82,7 +82,7 @@ export default function ExhibitorForm({ onClose }: ExhibitorFormProps) {
   };
 
   return (
-    <section className="max-w-5xl mx-auto px-4 py-16 mt-80 relative">
+    <section className="max-w-5xl mx-auto px-4 py-16 mt-96 relative">
       <h2 className="text-3xl font-bold text-indigo-700 mb-8 border-b-4 border-indigo-500 inline-block pb-2">
         Exhibitor Registration Form
       </h2>
@@ -97,7 +97,7 @@ export default function ExhibitorForm({ onClose }: ExhibitorFormProps) {
    
         <form onSubmit={handleSubmit} className="space-y-8 p-6 border border-gray-200 rounded-lg">
        
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 text-black">
             <Input label="Full Name" name="fullName" value={formData.fullName} onChange={handleChange} />
             <Input label="Designation" name="designation" value={formData.designation} onChange={handleChange} />
             <Input label="Company / Organisation Name" name="company" value={formData.company} onChange={handleChange} />
