@@ -65,7 +65,7 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
             className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg"
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold">Get in Touch</h2>
+              <h2 className="text-2xl font-bold">GET IN TOUCH</h2>
               <X
                 className="cursor-pointer text-gray-500 hover:text-gray-700"
                 onClick={() => setShowModal(false)}
@@ -120,7 +120,9 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
                 className="p-3 border rounded-lg w-full h-28"
                 required
               />
-              <button type="submit" className="w-full py-3 bg-blue-500 text-white rounded-lg">
+              <button type="submit" className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
+             hover:shadow-2xl transition-all duration-300 w-full">
                 Submit
               </button>
             </form>

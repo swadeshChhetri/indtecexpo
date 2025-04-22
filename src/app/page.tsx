@@ -293,7 +293,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-16">
+      {/* <section className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2
             className="text-3xl font-bold mb-12"
@@ -324,9 +324,9 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="bg-white py-16">
+      {/* <section className="bg-white py-16">
         <div className="max-w-5xl mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold text-center mb-12"
@@ -339,7 +339,7 @@ export default function Hero() {
           </motion.h2>
 
           <div className="relative">
-            {/* Vertical Timeline Line */}
+            {/* Vertical Timeline Line *
             <div className="absolute left-5 top-0 bottom-0 w-1 bg-blue-200"></div>
 
             <div className="space-y-12 pl-16">
@@ -352,7 +352,7 @@ export default function Hero() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  {/* Marker on the timeline */}
+                  {/* Marker on the timeline *
                   <div className="absolute -left-10 top-6 flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow">
                     <span className="text-white text-xs font-bold">{idx + 1}</span>
                   </div>
@@ -378,9 +378,9 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="bg-gray-100 py-16">
+      {/* <section className="bg-gray-100 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <motion.h2
             className="text-3xl font-bold mb-10"
@@ -424,7 +424,7 @@ export default function Hero() {
           {isExhibitorOpen && <ExhibitorModal isOpen={isExhibitorOpen} onClose={() => setIsExhibitorOpen(false)} />}
 
         </div>
-      </section>
+      </section> */}
 
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">

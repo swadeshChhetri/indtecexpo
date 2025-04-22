@@ -50,7 +50,7 @@ const stats = [
 export default function AboutUs(){
   return (
     <>
-      <section className="text-center py-16 bg-gray-100 pt-28">
+      <section className="text-center py-16 bg-gray-100 pt-64">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-gray-900"
           initial={{ opacity: 0, y: -20 }}
