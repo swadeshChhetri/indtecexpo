@@ -67,9 +67,9 @@ const Header = ({ onContactClick }: HeaderProps) => {
         </div>
 
         <div className="flex gap-2 items-end">
-          <Link href={"/"} className="z-[5]" >
+          <Link href={"/"} className="z-[5] " >
             <p className='text-center'></p>
-            <Image src="/INDGT.png"
+            <Image src="/l7.jpeg"
               alt="Logo"
               width={150}
               height={60}
@@ -78,22 +78,21 @@ const Header = ({ onContactClick }: HeaderProps) => {
           <Link href={"/"} className="z-[5] flex flex-col items-center justify-end h-36">
             <p className="text-xs mb-1">Organized By</p>
             <Image
-              src="/KGE.png"
+              src="/Kglogo2.png"
               alt="Logo"
               width={150}
               height={60}
-              className="h-32 object-contain"
+              className="h-32 object-fill"
             />
           </Link>
-
           <Link href={"/"} className="z-[5] flex flex-col items-center justify-end h-36">
             <p className="text-xs mb-1">Marketed By</p>
             <Image
-              src="/JGR.png"
+              src="/Jglogo.png"
               alt="Logo"
               width={140}
               height={60}
-              className="h-36 object-contain"
+              className="h-32 object-fill"
             />
           </Link>
         </div>
