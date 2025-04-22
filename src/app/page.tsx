@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react'
 import Image from 'next/image';
 import {
-  Mail, Phone, MapPin, Building
+  Mail, Phone, MapPin, Building, Landmark
 } from 'lucide-react';
 import Link from 'next/link';
 import VisitorModal from '@/components/VisitorModel';
@@ -199,16 +199,16 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a href="#register">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300"
-              >
-                REGISTER
-              </button>
-            </a>
+            >
+              REGISTER
+            </button>
+
           </div>
           <VisitorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </motion.div>
@@ -247,7 +247,7 @@ export default function Hero() {
             <p className="text-lg mb-6">
               INDTEC EXPO 2025 is India’s premier industrial technology event, showcasing cutting-edge innovations, machinery, and sustainable solutions. Network with top manufacturers, suppliers, and industry leaders over three dynamic days in Hosur.
             </p>
-            <Link href="/about">
+            <Link href="/aboutUs">
               <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
              hover:shadow-2xl transition-all duration-300">
@@ -497,37 +497,40 @@ export default function Hero() {
             transition={{ duration: 0.3, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Link href="/register">
-              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
              text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
-             hover:shadow-2xl transition-all duration-300">
-                REGISTER AS VISITOR
-              </button>
-            </Link>
+             hover:shadow-2xl transition-all duration-300"
+            >
+              REGISTER AS VISITOR
+            </button>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 font-serif">
         <div className="max-w-5xl mx-auto px-4">
           <motion.h2
-            className="text-3xl font-bold text-center mb-6"
+            className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
+            <Landmark className="w-6 h-6 text-blue-600" />
             VENUE & LOCATION
           </motion.h2>
 
           <motion.p
-            className="text-center text-lg text-gray-700 mb-8"
+            className="text-center text-lg text-gray-700 mb-8 flex items-center justify-center gap-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            📍 Hosur Industrial Expo Center, 123 Tech Park Road, Hosur, Tamil Nadu, India
+            <MapPin className="w-5 h-5 text-red-500" />
+            Hotel Hills Exhibition Center, (Bangalore-Chennai-Coimbatore Highway), Hosur, Tamil Nadu, India
           </motion.p>
 
           <motion.div
@@ -538,7 +541,7 @@ export default function Hero() {
             viewport={{ once: true }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.207715266889!2d77.83063727593398!3d12.741576120655105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6a0a6ae3b019%3A0x3cc48f7c1174f5e4!2sHosur%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1712659108200!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.2090746492484!2d77.82978467593387!3d12.74143792065624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6a18cd0c1ad1%3A0x4a3c1722b1f2d5b!2sHotel%20Hills%2C%20Hosur!5e0!3m2!1sen!2sin!4v1713772732981!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0 }}
@@ -555,10 +558,7 @@ export default function Hero() {
             transition={{ duration: 0.4, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p>
-              🚗 Parking available at the venue.
-              Accessible by public transport and taxis.
-            </p>
+            <p>🚗 Parking available at the venue. Accessible by public transport and taxis.</p>
           </motion.div>
         </div>
       </section>
@@ -603,7 +603,7 @@ export default function Hero() {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Contact Details</h3>
             <div className="space-y-5 text-sm text-gray-700">
-             
+
               <div className="flex items-start space-x-3">
                 <MapPin size={20} className="mt-1 text-red-500" />
                 <p>
@@ -613,11 +613,11 @@ export default function Hero() {
                 </p>
               </div>
               <div className='flex items-center gap-2'><Building size={28} className="text-blue-600" />
-      <span className="text-[11px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</span></div>
+                <span className="text-[11px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</span></div>
               <div className="flex items-start space-x-3">
                 <Phone size={20} className="mt-1 text-blue-600" />
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                  
+
                   <p>+91 7406213221</p>
                   <p>+91 7406213223</p>
                   <p>+080 23238677</p>

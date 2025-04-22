@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
+import { toast } from 'react-hot-toast';
+
 
 type FormDataType = {
   fullName: string;
@@ -66,7 +68,8 @@ export default function ExhibitorForm({ onClose }: ExhibitorFormProps) {
       });
 
       // const result = await res.json();
-      alert("Booking submitted successfully!");
+      toast.success("Booking submitted successfully!");
+      onClose();
       // Show toast or success UI
       // Redirect after a short delay (e.g., 2 seconds)
       setTimeout(() => {
@@ -74,7 +77,7 @@ export default function ExhibitorForm({ onClose }: ExhibitorFormProps) {
       }, 3000);
     } catch (error) {
       console.error("Submission Failed", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
       // Show error UI
     } finally {
       setLoading(false); // turn off the loader regardless of success/failure

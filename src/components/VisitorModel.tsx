@@ -3,6 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 interface VisitorModalProps {
   isOpen: boolean;
@@ -27,6 +28,7 @@ export default function VisitorModal({ isOpen, onClose }: VisitorModalProps) {
     try {
       await axios.post('https://tradesfairs.com/indtecexpo/api/visitors', formData); // Change URL if deployed
       console.log('Data submitted:', formData);
+      toast.success('Form submitted successfully!');
       onClose();
     } catch (error) {
       console.error('Error submitting form:', error);
