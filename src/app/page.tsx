@@ -4,107 +4,103 @@ import { motion } from 'framer-motion';
 import { useState } from 'react'
 import Image from 'next/image';
 import {
-  Users,
-  MonitorPlay,
-  Handshake,
-  Mic,
-  Network, CalendarClock, Mail, Phone, MapPin, Building
+  Mail, Phone, MapPin, Building
 } from 'lucide-react';
 import Link from 'next/link';
 import VisitorModal from '@/components/VisitorModel';
-import ExhibitorModal from '@/components/ExhibitorModal';
+// import ExhibitorModal from '@/components/ExhibitorModal';
 
 
 
 // const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
-const highlights = [
-  {
-    title: '100+ Exhibitors',
-    icon: Users,
-    description: 'Explore products and innovations from top industrial brands.',
-  },
-  {
-    title: 'Live Demonstrations',
-    icon: MonitorPlay,
-    description: 'Experience tech in action through real-time demos.',
-  },
-  {
-    title: 'Industry Networking',
-    icon: Handshake,
-    description: 'Connect with key players and grow your business.',
-  },
-  {
-    title: 'Panel Discussions',
-    icon: Mic,
-    description: 'Gain insights from expert-led industry panels.',
-  },
-  {
-    title: 'Business Matchmaking',
-    icon: Network,
-    description: 'Meet buyers, suppliers, and investors for growth.',
-  },
-  {
-    title: 'Industry Networking',
-    icon: Handshake,
-    description: 'Connect with key players and grow your business.',
-  },
-];
-const schedule = [
-  {
-    time: '10:00 AM',
-    title: 'Opening Ceremony & Keynote',
-    desc: 'Welcome address by industry leaders and organizers.',
-  },
-  {
-    time: '11:30 AM',
-    title: 'Live Product Demonstrations',
-    desc: 'Hands-on sessions with advanced industrial machinery.',
-  },
-  {
-    time: '02:00 PM',
-    title: 'Panel: Future of Manufacturing',
-    desc: 'Discussion with experts on automation and sustainability.',
-  },
-  {
-    time: '04:00 PM',
-    title: 'Networking & Matchmaking',
-    desc: 'Meet exhibitors, sponsors, and fellow attendees.',
-  },
-]
-const exhibitors = [
-  {
-    id: 1,
-    image: "man1.jpg",
-  },
-  {
-    id: 2,
-    image: 'man2.jpg'
-  },
-  {
-    id: 3,
-    image: 'man3.jpg',
-  },
-  {
-    id: 4,
-    image: 'man4.jpg',
-  },
-  {
-    id: 5,
-    image: 'man5.png',
-  },
-  {
-    id: 6,
-    image: 'man6.jpg',
-  },
-  {
-    id: 7,
-    image: 'man7.jpg',
-  },
-  {
-    id: 8,
-    image: 'man8.jpg',
-  },
-];
+// const highlights = [
+//   {
+//     title: '100+ Exhibitors',
+//     icon: Users,
+//     description: 'Explore products and innovations from top industrial brands.',
+//   },
+//   {
+//     title: 'Live Demonstrations',
+//     icon: MonitorPlay,
+//     description: 'Experience tech in action through real-time demos.',
+//   },
+//   {
+//     title: 'Industry Networking',
+//     icon: Handshake,
+//     description: 'Connect with key players and grow your business.',
+//   },
+//   {
+//     title: 'Panel Discussions',
+//     icon: Mic,
+//     description: 'Gain insights from expert-led industry panels.',
+//   },
+//   {
+//     title: 'Business Matchmaking',
+//     icon: Network,
+//     description: 'Meet buyers, suppliers, and investors for growth.',
+//   },
+//   {
+//     title: 'Industry Networking',
+//     icon: Handshake,
+//     description: 'Connect with key players and grow your business.',
+//   },
+// ];
+// const schedule = [
+//   {
+//     time: '10:00 AM',
+//     title: 'Opening Ceremony & Keynote',
+//     desc: 'Welcome address by industry leaders and organizers.',
+//   },
+//   {
+//     time: '11:30 AM',
+//     title: 'Live Product Demonstrations',
+//     desc: 'Hands-on sessions with advanced industrial machinery.',
+//   },
+//   {
+//     time: '02:00 PM',
+//     title: 'Panel: Future of Manufacturing',
+//     desc: 'Discussion with experts on automation and sustainability.',
+//   },
+//   {
+//     time: '04:00 PM',
+//     title: 'Networking & Matchmaking',
+//     desc: 'Meet exhibitors, sponsors, and fellow attendees.',
+//   },
+// ]
+// const exhibitors = [
+//   {
+//     id: 1,
+//     image: "man1.jpg",
+//   },
+//   {
+//     id: 2,
+//     image: 'man2.jpg'
+//   },
+//   {
+//     id: 3,
+//     image: 'man3.jpg',
+//   },
+//   {
+//     id: 4,
+//     image: 'man4.jpg',
+//   },
+//   {
+//     id: 5,
+//     image: 'man5.png',
+//   },
+//   {
+//     id: 6,
+//     image: 'man6.jpg',
+//   },
+//   {
+//     id: 7,
+//     image: 'man7.jpg',
+//   },
+//   {
+//     id: 8,
+//     image: 'man8.jpg',
+//   },
+// ];
 const images = [
   'g1.jpg',
   'g2.jpg',
@@ -147,7 +143,7 @@ export default function Hero() {
   // const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   // const [mounted, setMounted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isExhibitorOpen, setIsExhibitorOpen] = useState(false);
+  // const [isExhibitorOpen, setIsExhibitorOpen] = useState(false);
 
 
   // useEffect(() => {
