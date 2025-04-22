@@ -4,6 +4,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
+import { toast } from 'react-hot-toast';
 
 export default function RootWrapper({ children }: { children: React.ReactNode }) {
   const [showModal, setShowModal] = useState(false);
@@ -35,7 +36,7 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
 
       const data = await res.json();
       if (res.ok) {
-        alert("Message submitted successfully!");
+        toast.success("Message submitted successfully!");
         setShowModal(false);
         setFormData({
           first_name: "",
@@ -45,11 +46,11 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
           message: "",
         });
       } else {
-        alert(data.message || "Something went wrong.");
+        toast.error(data.message || "Something went wrong.");
       }
     } catch (error) {
       console.error(error);
-      alert("Server error. Please try again later.");
+      toast.error("Server error. Please try again later.");
     }
   };
 
@@ -64,7 +65,7 @@ export default function RootWrapper({ children }: { children: React.ReactNode })
             exit={{ opacity: 0, y: -50 }}
             className="bg-white p-6 rounded-2xl shadow-2xl w-[90%] max-w-lg"
           >
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex justify-between items-center mb-4"> 
               <h2 className="text-2xl font-bold">GET IN TOUCH</h2>
               <X
                 className="cursor-pointer text-gray-500 hover:text-gray-700"

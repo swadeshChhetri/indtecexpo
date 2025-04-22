@@ -247,7 +247,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
         </div>
 
         {/* Slide Menu - Mobile */}
-        <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-96 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        {/* <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-96 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div className="p-6 flex flex-col space-y-6 bg-white">
             <button className="self-end" onClick={() => setMenuOpen(false)}>
               <X size={28} />
@@ -260,7 +260,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
             <Link href={"/visitors"} className={`relative group ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Visitors</Link>
           </div>
-        </div>
+        </div> */}
       </nav>
     </header>
   )

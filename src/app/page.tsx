@@ -596,6 +596,10 @@ export default function Hero() {
               <li><Link href="/aboutUs" className="hover:text-black transition">About</Link></li>
               <li><Link href="/exhibitors" className="hover:text-black transition">Exhibitors</Link></li>
               <li><Link href="/visitors" className="hover:text-black transition">Visitor</Link></li>
+              <li><Link href="/" className="hover:text-black transition">SPONSORSHIP
+</Link></li>
+              <li><Link href="/aboutUs" className="hover:text-black transition">PUBLICITY</Link></li>
+              <li><Link href="/exhibitors" className="hover:text-black transition">Contact US</Link></li>
             </ul>
           </div>
 
