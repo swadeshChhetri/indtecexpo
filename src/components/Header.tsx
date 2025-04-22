@@ -178,7 +178,14 @@ const Header = ({ onContactClick }: HeaderProps) => {
             <div className="hover:text-blue-600 cursor-pointer text-[14px]">PUBLICITY</div>
           </li>
           <li className={`relative group flex ${pathname === '/floorplan' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
-            <Link href="/gallery" className='text-[14px]' >FLOOR PLAN</Link>
+            <a
+              href="/floorplan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[14px]"
+            >
+              FLOOR PLAN
+            </a>
           </li>
 
           <li className={`relative group flex ${pathname === '/review' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>
