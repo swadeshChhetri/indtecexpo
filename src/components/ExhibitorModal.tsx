@@ -1,6 +1,7 @@
 'use client';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import api from '@/lib/axios';
 
 type ExhibitorModalProps = {
   isOpen: boolean;
@@ -35,22 +36,9 @@ export default function ExhibitorModal({ isOpen, onClose }: ExhibitorModalProps)
     e.preventDefault();
 
     try {
-      const response = await fetch('https://tradesfairs.com/indtecexpo/api/exhibitors', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add the line below if your Laravel app uses sanctum/cors
-          // 'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        console.log('Exhibitor data submitted successfully');
-        onClose(); // Close modal
-      } else {
-        console.error('Submission failed');
-      }
+      await api.post('/exhibitors', formData);
+      console.log('Exhibitor data submitted successfully');
+      onClose();
     } catch (error) {
       console.error('Error:', error);
     }

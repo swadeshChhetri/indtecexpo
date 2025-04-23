@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from "react";
+import Image from 'next/image';
 
 const photos = [
   {
@@ -61,10 +62,12 @@ export default function GalleryWithTabs() {
                  key={index}
                  className="bg-white rounded-2xl shadow-md p-4 text-center hover:shadow-xl transition"
                >
-                 <img
+                 <Image
                    src={person.image}
                    alt={person.name}
                    className="w-full h-48 object-cover rounded-xl mb-4"
+                   height={400}
+                   width={400}
                  />
                  <h2 className="text-xl font-semibold">{person.name}</h2>
                  <p className="text-sm text-gray-500">{person.role}</p>

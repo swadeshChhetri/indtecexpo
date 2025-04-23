@@ -1,5 +1,6 @@
 
 'use client'
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useState } from 'react'
 import Image from 'next/image';
@@ -7,100 +8,15 @@ import {
   Mail, Phone, MapPin, Building, Landmark
 } from 'lucide-react';
 import Link from 'next/link';
-import VisitorModal from '@/components/VisitorModel';
-// import ExhibitorModal from '@/components/ExhibitorModal';
+const YouTubeAutoSlider = dynamic(() => import('@/components/videosslider'), {
+  ssr: false,
+  loading: () => <p>Loading video...</p>,
+});
 
+const VisitorModal = dynamic(() => import('@/components/VisitorModel'), {
+  ssr: false,
+});
 
-
-// const targetDate = new Date('2025-04-28T09:00:00') // Set your event time
-// const highlights = [
-//   {
-//     title: '100+ Exhibitors',
-//     icon: Users,
-//     description: 'Explore products and innovations from top industrial brands.',
-//   },
-//   {
-//     title: 'Live Demonstrations',
-//     icon: MonitorPlay,
-//     description: 'Experience tech in action through real-time demos.',
-//   },
-//   {
-//     title: 'Industry Networking',
-//     icon: Handshake,
-//     description: 'Connect with key players and grow your business.',
-//   },
-//   {
-//     title: 'Panel Discussions',
-//     icon: Mic,
-//     description: 'Gain insights from expert-led industry panels.',
-//   },
-//   {
-//     title: 'Business Matchmaking',
-//     icon: Network,
-//     description: 'Meet buyers, suppliers, and investors for growth.',
-//   },
-//   {
-//     title: 'Industry Networking',
-//     icon: Handshake,
-//     description: 'Connect with key players and grow your business.',
-//   },
-// ];
-// const schedule = [
-//   {
-//     time: '10:00 AM',
-//     title: 'Opening Ceremony & Keynote',
-//     desc: 'Welcome address by industry leaders and organizers.',
-//   },
-//   {
-//     time: '11:30 AM',
-//     title: 'Live Product Demonstrations',
-//     desc: 'Hands-on sessions with advanced industrial machinery.',
-//   },
-//   {
-//     time: '02:00 PM',
-//     title: 'Panel: Future of Manufacturing',
-//     desc: 'Discussion with experts on automation and sustainability.',
-//   },
-//   {
-//     time: '04:00 PM',
-//     title: 'Networking & Matchmaking',
-//     desc: 'Meet exhibitors, sponsors, and fellow attendees.',
-//   },
-// ]
-// const exhibitors = [
-//   {
-//     id: 1,
-//     image: "man1.jpg",
-//   },
-//   {
-//     id: 2,
-//     image: 'man2.jpg'
-//   },
-//   {
-//     id: 3,
-//     image: 'man3.jpg',
-//   },
-//   {
-//     id: 4,
-//     image: 'man4.jpg',
-//   },
-//   {
-//     id: 5,
-//     image: 'man5.png',
-//   },
-//   {
-//     id: 6,
-//     image: 'man6.jpg',
-//   },
-//   {
-//     id: 7,
-//     image: 'man7.jpg',
-//   },
-//   {
-//     id: 8,
-//     image: 'man8.jpg',
-//   },
-// ];
 const images = [
   'g1.jpg',
   'g2.jpg',
@@ -114,7 +30,7 @@ const logos = [
   "/companylogos/5.jpg", "/companylogos/6.jpg", "/companylogos/7.jpg", "/companylogos/8.jpg",
   "/companylogos/9.jpg", "/companylogos/10.jpg", "/companylogos/11.jpg", "/companylogos/12.jpg",
   "/companylogos/13.jpg", "/companylogos/14.jpg", "/companylogos/15.jpg", "/companylogos/16.jpg",
-  "/companylogos/17.jpg", "/companylogos/18.jpg", "/companylogos/19.jpg", "/companylogos/20.jpg",
+  "/companylogos/17.jpg", "/companylogos/18.jpg","/companylogos/19.jpeg", "/companylogos/20.png",
   "/companylogos/21.jpg", "/companylogos/22.jpg", "/companylogos/23.jpg", "/companylogos/24.jpg",
   "/companylogos/25.jpg", "/companylogos/26.jpg", "/companylogos/27.jpg", "/companylogos/28.jpg",
   "/companylogos/29.jpg", "/companylogos/30.jpg", "/companylogos/31.jpg", "/companylogos/32.jpg",
@@ -126,34 +42,8 @@ const logos = [
 const loopedLogos = [...logos, ...logos];
 
 
-// function getTimeLeft() {
-//   const now = new Date().getTime();
-//   const distance = targetDate.getTime() - now;
-
-//   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//   const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-//   const minutes = Math.floor((distance / 1000 / 60) % 60);
-//   const seconds = Math.floor((distance / 1000) % 60);
-
-//   return { days, hours, minutes, seconds };
-// }
-
-
 export default function Hero() {
-  // const [timeLeft, setTimeLeft] = useState(getTimeLeft());
-  // const [mounted, setMounted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isExhibitorOpen, setIsExhibitorOpen] = useState(false);
-
-
-  // useEffect(() => {
-  //   setMounted(true);
-  //   const interval = setInterval(() => {
-  //     setTimeLeft(getTimeLeft())
-  //   }, 1000)
-
-  //   return () => clearInterval(interval)
-  // }, [])
 
 
   return (
@@ -170,16 +60,6 @@ export default function Hero() {
           >
             <source src="/konn.mp4" type="video/mp4" />
           </video>
-          {/* <div className="w-full max-w-7xl mx-auto mt-10 aspect-video">
-            <iframe
-              className="w-full h-full rounded-xl shadow-lg"
-              src="https://www.youtube.com/embed/dAvtwpl4XCc?autoplay=1&mute=1&loop=1&playlist=dAvtwpl4XCc"
-              title="YouTube video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div> */}
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
@@ -264,16 +144,6 @@ export default function Hero() {
             viewport={{ once: true }}
             className="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-lg"
           >
-            {/* Example: Video */}
-            {/* <video
-              autoPlay
-              muted
-              loop
-              className="w-full h-full object-cover"
-              poster="/images/about-poster.jpg"
-            >
-              <source src="/videos/about-expo.mp4" type="video/mp4" />
-            </video> */}
             <Image
               src="/aboutus.png" // Replace with your image path
               alt="About Expo"
@@ -281,146 +151,10 @@ export default function Hero() {
               objectFit="cover"
               width={600}
               height={400}
-              priority
             />
-
-            {/* OR: Replace with image carousel later if preferred */}
           </motion.div>
         </div>
       </section>
-
-      {/* <section className="bg-gray-50 py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2
-            className="text-3xl font-bold mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Why Attend INDTEC EXPO 2025?
-          </motion.h2>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {highlights.map((item, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="p-4 bg-blue-50 rounded-full mb-4">
-                  <item.icon className="w-10 h-10 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* <section className="bg-white py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <motion.h2
-            className="text-3xl font-bold text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            Event Schedule Preview
-          </motion.h2>
-
-          <div className="relative">
-            {/* Vertical Timeline Line *
-            <div className="absolute left-5 top-0 bottom-0 w-1 bg-blue-200"></div>
-
-            <div className="space-y-12 pl-16">
-              {schedule.map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  className="relative bg-blue-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  {/* Marker on the timeline *
-                  <div className="absolute -left-10 top-6 flex items-center justify-center w-8 h-8 bg-blue-600 rounded-full border-4 border-white shadow">
-                    <span className="text-white text-xs font-bold">{idx + 1}</span>
-                  </div>
-
-                  <time className="text-sm font-semibold text-blue-600">
-                    {item.time}
-                  </time>
-                  <h3 className="text-xl font-bold mt-1">{item.title}</h3>
-                  <p className="mt-2 text-gray-600">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/schedule">
-              <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
-             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
-             hover:shadow-2xl transition-all duration-300 flex text-center">
-                <CalendarClock className="w-5 h-5" />
-                SEE FULL SCHEDULE
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-      {/* <section className="bg-gray-100 py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <motion.h2
-            className="text-3xl font-bold mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            OUR EXHIBITORS & PARTNERS
-          </motion.h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-center">
-            {exhibitors.map((logo, idx) => (
-              <motion.div
-                key={logo.id}
-                className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Image
-                  src={`/${logo.image}`}
-                  // alt={logo.replace('.png', '')}
-                  alt="image"
-                  width={150}
-                  height={80}
-                  className="mx-auto object-contain"
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12">
-            <button className="px-9 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 
-             text-white text-base sm:text-lg font-[cursive] font-semibold rounded-full shadow-xl 
-             hover:shadow-2xl transition-all duration-300" onClick={() => setIsExhibitorOpen(true)}>
-              BECOME AN EXHIBITOR
-            </button>
-          </div>
-          {isExhibitorOpen && <ExhibitorModal isOpen={isExhibitorOpen} onClose={() => setIsExhibitorOpen(false)} />}
-
-        </div>
-      </section> */}
 
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
@@ -509,7 +243,13 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="bg-white py-16 font-serif">
+      {/* <section className="bg-white py-12">
+        <div className="w-full px-4"> */}
+      <YouTubeAutoSlider />
+      {/* </div>
+      </section> */}
+
+      <section className="bg-white py-16">
         <div className="max-w-5xl mx-auto px-4">
           <motion.h2
             className="text-3xl font-bold text-center mb-6 flex items-center justify-center gap-2"
@@ -563,6 +303,8 @@ export default function Hero() {
         </div>
       </section>
 
+
+
       <footer className="bg-white text-black py-10 px-6 border-t">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Logo & Social Icons */}
@@ -597,7 +339,7 @@ export default function Hero() {
               <li><Link href="/exhibitors" className="hover:text-black transition">Exhibitors</Link></li>
               <li><Link href="/visitors" className="hover:text-black transition">Visitor</Link></li>
               <li><Link href="/" className="hover:text-black transition">SPONSORSHIP
-</Link></li>
+              </Link></li>
               <li><Link href="/aboutUs" className="hover:text-black transition">PUBLICITY</Link></li>
               <li><Link href="/exhibitors" className="hover:text-black transition">Contact US</Link></li>
             </ul>
@@ -647,8 +389,6 @@ export default function Hero() {
           © JAGUAR MEDIA AND ENTERTAINMENTS LLP · 2025
         </div>
       </footer>
-
-
     </>
   )
 }

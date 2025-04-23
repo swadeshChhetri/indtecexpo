@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { toast } from 'react-hot-toast';
+import api from "@/lib/axios";
+
 
 
 type FormDataType = {
@@ -59,14 +61,15 @@ export default function ExhibitorForm({ onClose }: ExhibitorFormProps) {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://tradesfairs.com/indtecexpo/api/spacebooking", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
+      // await fetch("https://tradesfairs.com/indtecexpo/api/spacebooking", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+      await api.post("/spacebooking", formData);
+      
       // const result = await res.json();
       toast.success("Booking submitted successfully!");
       onClose();
