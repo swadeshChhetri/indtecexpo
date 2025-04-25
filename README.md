@@ -1,4 +1,4 @@
-<h1 align="center">🎉 Ind-Tex Expo 2023</h1>
+<h1 align="center">🎉 INDTECEXPO-2025</h1>
 
 <p align="center">
   <strong>India's Premier B2B Textile Exhibition</strong><br />
@@ -7,9 +7,9 @@
 
 ---
 
-## 🧵 About Ind-Tex Expo
+## 🧵 About INDTECEXPO
 
-**Ind-Tex Expo 2023** is a specialized B2B fair in the Indian textile sector, offering a one-stop destination for worldwide importers to source Indian textiles in all its splendor—from fibers to fashion. :contentReference[oaicite:2]{index=2}
+**INDTECEXPO-2025** is a specialized B2B fair in the Indian textile sector, offering a one-stop destination for worldwide importers to source Indian textiles in all its splendor—from fibers to fashion. :contentReference[oaicite:2]{index=2}
 
 Organized by **TEXPROCIL** (The Cotton Textiles Export Promotion Council), the expo aims to provide a platform for Indian suppliers to meet and network with global buyers, facilitating business opportunities and partnerships.
 
@@ -17,10 +17,10 @@ Organized by **TEXPROCIL** (The Cotton Textiles Export Promotion Council), the e
 
 ## 📅 Event Details
 
-- **Dates:** [Insert Event Dates]
-- **Venue:** Leela Ambience Convention Hotel, New Delhi
-- **Organizer:** TEXPROCIL
-- **Website:** [https://ind-texpo.com/](https://ind-texpo.com/)
+- **Dates:** 20 – 21 - 22
+- **Venue:** (Bangalore-Chennai-Coimbatore Highway), Hosur, Tamilnadu, India
+- **Organizer:** KonnektGlobe
+- **Website:** https://www.indtecexpo.com/
 
 ---
 
