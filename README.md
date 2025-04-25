@@ -1,53 +1,62 @@
-<h1 align="center">🎉 INDTECEXPO-2025</h1>
+<h1 align="center">🚀 INDTEC EXPO 2025</h1>
 
 <p align="center">
-  <strong>India's Premier B2B Textile Exhibition</strong><br />
-  Showcasing the finest in Indian textiles from fibers to fashion.
+  <strong>India's Leading Industrial Technology Exhibition</strong><br />
+  November 20 – 21 – 22 • Hotel Hills Exhibition Center, Hosur, Tamil Nadu, India
 </p>
 
 ---
 
-## 🧵 About INDTECEXPO
+## 🏭 About the Event
 
-**INDTECEXPO-2025** is a specialized B2B fair in the Indian textile sector, offering a one-stop destination for worldwide importers to source Indian textiles in all its splendor—from fibers to fashion. :contentReference[oaicite:2]{index=2}
+**INDTEC EXPO 2025** is a premier B2B event showcasing innovations in industrial technology, automation, robotics, smart manufacturing, and future-ready infrastructure.
 
-Organized by **TEXPROCIL** (The Cotton Textiles Export Promotion Council), the expo aims to provide a platform for Indian suppliers to meet and network with global buyers, facilitating business opportunities and partnerships.
-
----
-
-## 📅 Event Details
-
-- **Dates:** 20 – 21 - 22
-- **Venue:** (Bangalore-Chennai-Coimbatore Highway), Hosur, Tamilnadu, India
-- **Organizer:** KonnektGlobe
-- **Website:** https://www.indtecexpo.com/
+Held in the heart of South India's industrial belt — Hosur — the expo connects leading technology providers with key decision-makers from across the country.
 
 ---
 
-## 🧑‍💼 Who Should Attend?
+## 📍 Event Highlights
 
-- International importers and buyers of cotton textiles
-- Indian suppliers of yarns, fabrics, and made-ups
-- Textile industry professionals and trade associations
-- Sourcing agents and buying houses
-
----
-
-## 🌟 Highlights
-
-- Exhibition area of over 2,500 sq. meters
-- Participation from leading Indian textile exporters
-- Financial assistance for eligible foreign buyers under the MAI scheme of the Ministry of Commerce, Govt. of India
-- One-on-one business meetings and networking opportunities
-- Display of latest trends, developments, and innovations in the textile sector
+- 🗓️ **Dates:** November 20 – 21 – 22, 2025  
+- 📌 **Venue:** Hotel Hills Exhibition Center  
+  *(Bangalore-Chennai-Coimbatore Highway), Hosur, Tamil Nadu*  
+- 🧠 **Focus Areas:** Smart Tech • Automation • Machinery • Robotics • Manufacturing
 
 ---
 
-## 🖼️ Gallery
+## 🧑‍🤝‍🧑 Who Should Attend?
 
-> *(Optional: Add image previews of the expo)*
+- Industrial Tech Innovators  
+- Automation & Robotics Engineers  
+- Investors & Manufacturing Consultants  
+- Procurement Managers  
+- B2B Buyers & Sellers  
+- Policy Makers & Startups
+
+---
+
+## 🎯 What to Expect
+
+- ✅ Live Product Demonstrations  
+- ✅ Industrial Tech Launches  
+- ✅ B2B Networking  
+- ✅ Conference Sessions with Experts  
+- ✅ Business Expansion Opportunities
+
+---
+
+## 🌐 Website
+
+🔗 [Visit Official Website](https://indtecexpo.com)
+
+---
+
+## 📸 Preview
+
+> *(Optional: Include real screenshots once your website or design assets are ready)*
 
 ```markdown
-![Exhibition Hall](./assets/exhibition-hall.jpg)
-![Networking Session](./assets/networking-session.jpg)
+![Expo Entrance](public/expo-entrance.png)
+![Booth Layout](public/booth-layout.png)
+
 
