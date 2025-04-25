@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">🎉 Ind-Tex Expo 2023</h1>
 
-## Getting Started
+<p align="center">
+  <strong>India's Premier B2B Textile Exhibition</strong><br />
+  Showcasing the finest in Indian textiles from fibers to fashion.
+</p>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧵 About Ind-Tex Expo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Ind-Tex Expo 2023** is a specialized B2B fair in the Indian textile sector, offering a one-stop destination for worldwide importers to source Indian textiles in all its splendor—from fibers to fashion. :contentReference[oaicite:2]{index=2}
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Organized by **TEXPROCIL** (The Cotton Textiles Export Promotion Council), the expo aims to provide a platform for Indian suppliers to meet and network with global buyers, facilitating business opportunities and partnerships.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📅 Event Details
 
-To learn more about Next.js, take a look at the following resources:
+- **Dates:** [Insert Event Dates]
+- **Venue:** Leela Ambience Convention Hotel, New Delhi
+- **Organizer:** TEXPROCIL
+- **Website:** [https://ind-texpo.com/](https://ind-texpo.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧑‍💼 Who Should Attend?
 
-## Deploy on Vercel
+- International importers and buyers of cotton textiles
+- Indian suppliers of yarns, fabrics, and made-ups
+- Textile industry professionals and trade associations
+- Sourcing agents and buying houses
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌟 Highlights
+
+- Exhibition area of over 2,500 sq. meters
+- Participation from leading Indian textile exporters
+- Financial assistance for eligible foreign buyers under the MAI scheme of the Ministry of Commerce, Govt. of India
+- One-on-one business meetings and networking opportunities
+- Display of latest trends, developments, and innovations in the textile sector
+
+---
+
+## 🖼️ Gallery
+
+> *(Optional: Add image previews of the expo)*
+
+```markdown
+![Exhibition Hall](./assets/exhibition-hall.jpg)
+![Networking Session](./assets/networking-session.jpg)
+
