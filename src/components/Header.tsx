@@ -259,10 +259,14 @@ const Header = ({ onContactClick }: HeaderProps) => {
              </button>
              <Link href={"/"} className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>HOME</Link>
              <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-             <Link href={"/exhibitors"} className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Exhibitors</Link>
-             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+             <Link href={"/#3"} className={`${pathname === '/#3' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>EXHIBITORS</Link>
+             <Link href={"/#4"} className={`${pathname === '/#4' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>VISITORS</Link>
+             <Link href={"/#5"} className={`relative group ${pathname === '/#5' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>SPONSORSHIP</Link>
+             <a
+              href="/floorplan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>FLOOR PLAN</a>
              <Link href={"/visitors"} className={`relative group ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Visitors</Link>
            </div>
          </div>

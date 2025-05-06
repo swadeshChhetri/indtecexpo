@@ -345,8 +345,8 @@ export default function Hero() {
             <div className="space-y-5 text-sm text-gray-700">
 
               {/* Address */}
-              <div className="flex sm:gap-3">
-                <MapPin size={20} className="text-red-500 mb-2 text-center" />
+              <div className="flex flex-col sm:flex-row gap-2">
+                <MapPin size={20} className="text-red-500" />
                 <span className="">
                   #372/1, 3rd Floor,<br />
                   4th Stage, 8th Main Road,<br />
