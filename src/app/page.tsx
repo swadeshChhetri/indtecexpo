@@ -30,7 +30,7 @@ const logos = [
   "/companylogos/5.jpg", "/companylogos/6.jpg", "/companylogos/7.jpg", "/companylogos/8.jpg",
   "/companylogos/9.jpg", "/companylogos/10.jpg", "/companylogos/11.jpg", "/companylogos/12.jpg",
   "/companylogos/13.jpg", "/companylogos/14.jpg", "/companylogos/15.jpg", "/companylogos/16.jpg",
-  "/companylogos/17.jpg", "/companylogos/18.jpg","/companylogos/19.jpeg", "/companylogos/20.png",
+  "/companylogos/17.jpg", "/companylogos/18.jpg", "/companylogos/19.jpeg", "/companylogos/20.png",
   "/companylogos/21.jpg", "/companylogos/22.jpg", "/companylogos/23.jpg", "/companylogos/24.jpg",
   "/companylogos/25.jpg", "/companylogos/26.jpg", "/companylogos/27.jpg", "/companylogos/28.jpg",
   "/companylogos/29.jpg", "/companylogos/30.jpg", "/companylogos/31.jpg", "/companylogos/32.jpg",
@@ -48,10 +48,10 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative h-[90vh] pt-56 flex items-center justify-center text-white">
+      <section className="relative h-[90vh] pt-72 md:pt-56 flex items-center justify-center text-white">
         {/* Background Video or Image */}
         <div className="absolute inset-0">
-          <video
+          {/* <video
             autoPlay
             muted
             loop
@@ -59,17 +59,12 @@ export default function Hero() {
             poster="/images/hero-poster.jpg"
           >
             <source src="/konn.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
         {/* Hero Content */}
-        <motion.div
-          className="relative text-center max-w-4xl px-4"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative text-center max-w-4xl px-4" >
           <h1 className="text-4xl md:text-6xl font-bold">INDTEC EXPO - 2025</h1>
           <p className="mt-2 text-xl md:text-2xl">NOVEMBER 20 – 21 - 22</p>
           <p>Hotel Hills Exhibition Center</p>
@@ -91,7 +86,7 @@ export default function Hero() {
 
           </div>
           <VisitorModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        </motion.div>
+        </div>
       </section>
 
       <section className="relative py-12 bg-white via-red-800 to-red-900 text-white">
@@ -306,22 +301,22 @@ export default function Hero() {
 
 
       <footer className="bg-white text-black py-10 px-6 border-t">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {/* Logo & Social Icons */}
-          <div className="flex flex-col items-center md:items-start space-y-6">
+          <div className="flex flex-col md:items-start space-y-6">
             <Image
               src="/IndtecExpologo.jpg"
               alt="Logo"
               width={250}
               height={250}
-              className="w-[200px] h-56 object-contain"
+              className="w-[160px] sm:w-[180px] md:w-[200px] h-40 object-contain"
             />
           </div>
 
           {/* Quick Links */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-3 text-gray-600">
+          <div className="sm:text-left">
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-gray-600 text-sm">
               <li><a href="#" className="hover:text-black transition">Download PEDC Brochure</a></li>
               <li><a href="#" className="hover:text-black transition">2017-2018 Schedule</a></li>
               <li><a href="#" className="hover:text-black transition">2017-2018 Calendar</a></li>
@@ -331,64 +326,76 @@ export default function Hero() {
           </div>
 
           {/* Navigation */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4">Navigation</h3>
-            <ul className="space-y-3 text-gray-600">
+          <div className="sm:text-left">
+            <h3 className="text-lg font-bold mb-4">Navigation</h3>
+            <ul className="space-y-2 text-gray-600 text-sm">
               <li><Link href="/" className="hover:text-black transition">Home</Link></li>
               <li><Link href="/aboutUs" className="hover:text-black transition">About</Link></li>
               <li><Link href="/exhibitors" className="hover:text-black transition">Exhibitors</Link></li>
               <li><Link href="/visitors" className="hover:text-black transition">Visitor</Link></li>
-              <li><Link href="/" className="hover:text-black transition">SPONSORSHIP
-              </Link></li>
+              <li><Link href="/" className="hover:text-black transition">SPONSORSHIP</Link></li>
               <li><Link href="/aboutUs" className="hover:text-black transition">PUBLICITY</Link></li>
               <li><Link href="/exhibitors" className="hover:text-black transition">Contact US</Link></li>
             </ul>
           </div>
 
           {/* Contact Details */}
-          <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4">Contact Details</h3>
+          <div className="sm:text-left">
+            <h3 className="text-lg font-bold mb-4">Contact Details</h3>
             <div className="space-y-5 text-sm text-gray-700">
 
-              <div className="flex items-start space-x-3">
-                <MapPin size={20} className="mt-1 text-red-500" />
-                <p>
-                  #372/1, 3rd Floor, <br /> 4th Stage, 8th Main Road,
+              {/* Address */}
+              <div className="flex sm:gap-3">
+                <MapPin size={20} className="text-red-500 mb-2 text-center" />
+                <span className="">
+                  #372/1, 3rd Floor,<br />
+                  4th Stage, 8th Main Road,<br />
                   Basaweshwaranagar, Bangalore,<br />
                   Karnataka, India - 560079
-                </p>
+                </span>
               </div>
-              <div className='flex items-center gap-2'><Building size={28} className="text-blue-600" />
-                <span className="text-[11px]">JAGUAR MEDIA AND ENTERTAINMENTS LLP</span></div>
-              <div className="flex items-start space-x-3">
-                <Phone size={20} className="mt-1 text-blue-600" />
-                <div className="grid grid-cols-2 gap-x-2 gap-y-1">
 
+              {/* Company Name */}
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Building size={20} className="text-blue-600" />
+                <span className="text-xs">JAGUAR MEDIA AND ENTERTAINMENTS LLP</span>
+              </div>
+
+              {/* Phone Numbers */}
+              <div className="flex flex-col sm:flex-row sm:gap-3">
+                <Phone size={20} className="text-blue-600 mb-2 sm:mt-1" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
                   <p>+91 7406213221</p>
                   <p>+91 7406213223</p>
                   <p>+080 23238677</p>
                   <p>+080 23238699</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <Mail size={20} className="mt-1 text-green-600" />
+
+              {/* Website */}
+              <div className="flex flex-col sm:flex-row  gap-3">
+                <Mail size={20} className="text-green-600 mb-2 sm:mt-1" />
                 <a
                   href="http://www.jaguarmedia.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-700 underline hover:text-blue-900"
+                  className="text-blue-700 underline hover:text-blue-900 break-all"
                 >
                   www.jaguarmedia.com
                 </a>
               </div>
+
             </div>
           </div>
+
         </div>
 
-        <div className="text-center text-gray-500 text-sm mt-10 border-t pt-4">
+        <div className=" text-gray-500 text-xs sm:text-sm mt-10 border-t pt-4">
           © JAGUAR MEDIA AND ENTERTAINMENTS LLP · 2025
         </div>
       </footer>
+
+
     </>
   )
 }

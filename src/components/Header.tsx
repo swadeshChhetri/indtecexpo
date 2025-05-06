@@ -38,6 +38,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
   }, [prevScrollPos]);
 
   return (
+    <>
     <header className={`w-full transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
       } fixed top-0 left-0 bg-white z-10`}>
       {/* Top Bar */}
@@ -48,7 +49,7 @@ const Header = ({ onContactClick }: HeaderProps) => {
         <Link href={"/"} className="z-[5]" >
           <Image src="/IndtecExpologo.jpg" alt="Logo" width={198} height={4} className="w-[100%]" />
         </Link>
-        <div>
+        <div className = "hidden md:block">
           <p className="text-center font-semibold">Concurrent Show</p>
 
           <div className="flex items-center gap-4 px-4 py-2">
@@ -241,28 +242,31 @@ const Header = ({ onContactClick }: HeaderProps) => {
 
         {/* Burger Menu Icon - Mobile */}
         <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
+          <button className='text-white' onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
-        {/* Slide Menu - Mobile */}
-        {/* <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-96 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="p-6 flex flex-col space-y-6 bg-white">
-            <button className="self-end" onClick={() => setMenuOpen(false)}>
-              <X size={28} />
-            </button>
-            <Link href={"/"} className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>HOME</Link>
-            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-            <Link href={"/exhibitors"} className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Exhibitors</Link>
-            <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
-            <Link href={"/visitors"} className={`relative group ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Visitors</Link>
-          </div>
-        </div> */}
+       
       </nav>
+
     </header>
+           {/* Slide Menu - Mobile */}
+           <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform duration-300 z-96 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+           <div className="p-6 flex flex-col space-y-6 bg-white">
+             <button className="self-end" onClick={() => setMenuOpen(false)}>
+               <X size={28} />
+             </button>
+             <Link href={"/"} className={`${pathname === '/' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>HOME</Link>
+             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+             <Link href={"/exhibitors"} className={`relative group ${pathname === '/exhibitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Exhibitors</Link>
+             <Link href={"/aboutUs"} className={`${pathname === '/aboutUs' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>ABOUT US</Link>
+             <Link href={"/visitors"} className={`relative group ${pathname === '/visitors' ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600'}`}>Visitors</Link>
+           </div>
+         </div>
+         </>
   )
 }
 
